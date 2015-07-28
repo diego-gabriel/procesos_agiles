@@ -1,0 +1,9 @@
+Nombre de clases 			-> singular / CamelCase (empieza con Mayuscula)
+Atributos de clase/variables -> snake_case
+Nombre de archivos simples 	-> CamelCase (empiezan con minuscula)
+Nombre de las tablas en base de datos 	-> plural / snake_case
+Nombre de los metodos de una clase 		-> CamelCase
+Idioma del codigo -> español
+Posicion del primer corchete al final de linea.
+Asignaciones alineadas
+Parciales -> empieza con undescore y CamelCase 

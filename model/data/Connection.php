@@ -1,5 +1,11 @@
 <?php
 //psql -U postgres -W -h localhost calendario_tareas
+// el password sigue siendo cronos :)
+// /etc/php5/apache2/php.ini -> archivo de configuracion
+//drop database calendario_tareas;
+//create database calendario_tareas;
+//\c calendario_tareas; -> \i /home/ubuntu/workspace/model/data/db.sql
+
 class Connection
 {
   private static $instance;

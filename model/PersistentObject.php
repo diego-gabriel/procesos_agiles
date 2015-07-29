@@ -53,6 +53,10 @@ abstract class PersistentObject{
 	}
 	
 	
+	public function getId(){
+		return $this->id;
+	}
+	
 	protected abstract function initialize_from($aRow);
 	protected abstract function guardar_atributos();
 	protected abstract function validar();

@@ -5,6 +5,10 @@
 //drop database calendario_tareas;
 //create database calendario_tareas;
 //\c calendario_tareas; -> \i /home/ubuntu/workspace/model/data/db.sql
+// para clonar:
+// cd /home/ubuntu
+// git clone https://github.com/diego-gabriel/procesos_agiles.git
+// mv procesos_agiles/ workspace
 
 class Connection
 {

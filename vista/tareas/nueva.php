@@ -90,17 +90,24 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label  for="name" class=" col-lg-2 control-label">Materia:</label>
-						<input required type="tex" class="form-control" id="materia" name="materia" placeholder="Materia">
 					</div>
+					<br>
+				<?php 
+                require_once '../../model/Materia.php';
+                ?>
+                <select name="materia"> 
+                <?php
+                foreach(Materia::allMaterias() as $materia){
+               	?>
+                <option value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></option>
+                <?php
+                }
+            ?> 
+            	</select>
+					
 				</div>
 			</div>
-			<form action="script.php" method="post">
-   Sistema Operativo:<br /> 
-   <select name="programa">    
-       <option value="Windows" selected="selected">Windows</option>
-       <option value="Machintosh">Mac</option>
-       <option value="Linux">Linux</option>
-   </select>
+		
 
 			<div class="form-group">
 				<label  for="name" class=" col-lg-2 control-label">Descripcion:</label>

@@ -24,11 +24,10 @@
                 <th>Descripcion</th>
             </tr>
             <?php 
-            require_once '../../model/Tarea.php';
-            
-            foreach(Tarea::all() as $tarea){ 
+                require_once '../../model/Tarea.php';
+                foreach(Tarea::all() as $tarea){ 
                 require "_lineaTarea.php";
-            }
+                }
             ?> 
             </table>     
         </div>

@@ -37,12 +37,13 @@ class Tarea extends PersistentObject{
 		return $res;
 	}
 	
+	
 	protected function validar(){
 		//validamos que el nombre no este repetido en la basede datos
 		$valido = true;
 		
 		$connection 	= Connection::getInstance();
-        $consultaNombre = "SELECT * FROM tareas WHERE nombre = '$this->nombre'";
+        $consultaNombre = "SELECT * FROM tareas WHERE nombre = '$this->nombre' AND materia_id = '$this->materia_id'";
         $resultado 		= $connection->query($consultaNombre);
         $registros 		= pg_num_rows($resultado);
         
@@ -67,8 +68,7 @@ class Tarea extends PersistentObject{
     }
 	
 	public function setMateria($materia_id){
-	//	$this->materia_id = $materia_id;
-		$this->materia_id = 1;
+		$this->materia_id = $materia_id;
 	}
 	
 	public function setNombre($nombre){

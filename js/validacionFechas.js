@@ -135,4 +135,10 @@ $(document).on('ready',function(){
 			$('input').prop('readOnly', true);
 		}        
     });
+    console.log($('#materias').length);
+    
+    $('#materias').on('keyup keydown keypress change input', function() {
+    	console.log("lala?");
+        return false;
+    })
 });

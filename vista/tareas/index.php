@@ -29,7 +29,8 @@
                 require "_lineaTarea.php";
                 }
             ?> 
-            </table>     
+            </table>
+            <a href="nueva.php"><button class="btn btn-primary">Registrar Nueva Tarea</button></a>
         </div>
     </body>
 </html>

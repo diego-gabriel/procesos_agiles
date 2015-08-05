@@ -35,14 +35,14 @@
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="date">Fecha de inicio: </label>
-						<input required class="datepicker" type="text" name="fechaInicioE" id="fechaInicioE" placeholder="Fecha de Inicio" readonly>
+						<input required class="datepicker" type="text" name="fechaInicioE" id="fechaInicioE" placeholder="Fecha de Inicio">
 					</div>
 				</div>
 
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="date">Fecha de entrega:</label>
-						<input required class="datepicker" type="text" name="fechaFinalE" id="fechaFinalE" placeholder="Fecha Limite" readonly>
+						<input required class="datepicker" type="text" name="fechaFinalE" id="fechaFinalE" placeholder="Fecha Limite">
 					</div>
 				</div>
 
@@ -95,7 +95,7 @@
 				<?php 
                 require_once '../../model/Materia.php';
                 ?>
-                <select name="materia"> 
+                <select name="materia" id = 'materias'> 
                 <?php
                 foreach(Materia::allMaterias() as $materia){
                	?>

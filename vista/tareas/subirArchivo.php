@@ -4,7 +4,7 @@
     <head>
         <body style="background:#F0F8FF">
         <meta charset="UTF-8">
-        <title>Tareas Registradas</title>
+        <title>Subir Tareas</title>
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	     <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
@@ -15,14 +15,18 @@
     </head>
     <body>
         <form role="form">
-  				
-  				<div class="container">
-    			<label for="ejemplo_archivo_1">Adjuntar un archivo</label>
-    			<input type="file" id="ejemplo_archivo_1">
+  			<div class="container">
+  			
+  			
+  				<label>Adjuntar un archivo</label>
+    			<input type="file" id="archivo">
     			<p class="help-block">solo es admitido formatos .pdf y .zip</p>
-  				
-  			<button type="submit" class="btn btn-default">Subir Trabajo</button>
+  			    <button type="submit" name= "boton" class="btn btn-info">Subir Trabajo</button>
   			</div>
+  			<?php
+  			$formatos = array('.pdf','.doc','.zip');
+  			
+  			?>
 		</form>
     </body>
 

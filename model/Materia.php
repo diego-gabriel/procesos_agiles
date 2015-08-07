@@ -1,9 +1,12 @@
 <?php
 
 require_once 'data/Connection.php';
-require_once 'PersistentObject.php';
+require_once 'ObjetoPersistente.php';
 
-class Materia extends PersistentObject{
+class Materia extends ObjetoPersistente{
+	
+	use accesoAPropiedades;
+	
 	private $nombre;
 
 	function __construct($id = -1){
@@ -14,7 +17,7 @@ class Materia extends PersistentObject{
 		$this->nombre = $aRow['nombre'];
 	}
 	
-	public static function allMaterias(){
+	public static function all(){
 		$connection = Connection::getInstance();
 		$class 		= "materias";
 		$result 	= $connection->query("SELECT id FROM $class");
@@ -25,11 +28,6 @@ class Materia extends PersistentObject{
 		}
 		
 		return $res;
-	}
-	
-	protected function guardar_atributos(){
-		//implementar
-		return true;
 	}
 	
 	protected function validar(){

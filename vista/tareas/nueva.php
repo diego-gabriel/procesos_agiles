@@ -65,7 +65,7 @@
 					<div class="form-group">
 						<div class="clearfix">
 								<label  for="date">Hora de Entrega:</label>
-<div class="input-group clockpicker pull-center" data-align="top" data-autoclose="true">
+								<div class="input-group clockpicker pull-center" data-align="top" data-autoclose="true">
 								<input required type="text" class="form-control" name="horaFin" id ="horaFin" placeholder="Ingrese la hora limite de entrega">
 								<span class="input-group-addon">
 								<span class="glyphicon glyphicon-time"></span>
@@ -97,7 +97,7 @@
                 ?>
                 <select name="materia" id = 'materias'> 
                 <?php
-                foreach(Materia::allMaterias() as $materia){
+                foreach(Materia::all() as $materia){
                	?>
                 <option value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></option>
                 <?php

@@ -12,5 +12,17 @@ CREATE TABLE IF NOT EXISTS tareas (
 	materia_id 	integer REFERENCES materias
 );
 
+CREATE TABLE IF NOT EXISTS usuarios (
+	id				serial NOT NULL PRIMARY KEY,
+	nombre_usuario 	varchar(50) NOT NULL DEFAULT '(sin nombre)',
+	--Esto es porque no se que poner, no puede entrar la ñ en la base de datos
+	clave 			varchar(50) NOT NULL DEFAULT '(sin clave)'
+);
+
+CREATE TABLE IF NOT EXISTS estudiantes (
+	id serial NOT NULL PRIMARY KEY,
+	usuario_id	integer REFERENCES usuarios
+);
+
 INSERT INTO materias 	(nombre) VALUES ('Procesos Agiles');
 INSERT INTO tareas (nombre, descripcion, materia_id) VALUES ('procesos agiles', 'sprint 1', 1);

@@ -1,11 +1,15 @@
 <?php
 
+require_once "traits/accesoAPropiedades.php";
+
 function pluralize($str){
 	return $str."s";
 }
 
-abstract class PersistentObject{
+abstract class ObjetoPersistente{
 		
+	use accesoAPropiedades;
+	
 	protected $id;
 	
 	protected function __construct($id = -1){
@@ -23,6 +27,7 @@ abstract class PersistentObject{
 			}
 		}
 	}
+	
 	
 	public function guardar(){
 		$guardado_exitoso = false;
@@ -47,6 +52,27 @@ abstract class PersistentObject{
 		
 	}
 	
+	public function guardar_atributos(){
+		$atributos = $this->atributos();
+		$conexion = Connection::getInstance();
+		
+		$consulta = "UPDATE ".$this->getClass()." SET ";
+		$bandera = false;
+		foreach($this->atributos() as $attr => $value){
+			
+			if ($bandera){
+				$consulta .= ", ";
+			} else {
+				$bandera = true;
+			}
+			
+			$consulta .= $attr." = ".(is_numeric($value) ? $value : "'$value'")." ";
+		}
+	
+		$consulta .= "WHERE id = $this->id";
+		echo "$consulta<br>";
+		$conexion->query($consulta);
+	}
 	
 	private function getClass(){
 		return strtolower(pluralize(get_class($this)));
@@ -58,7 +84,6 @@ abstract class PersistentObject{
 	}
 	
 	protected abstract function initialize_from($aRow);
-	protected abstract function guardar_atributos();
 	protected abstract function validar();
 }
 	

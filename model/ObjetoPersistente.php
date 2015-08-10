@@ -56,17 +56,18 @@ abstract class ObjetoPersistente{
 		$bandera = false;
 		foreach($this->atributos() as $attr => $value){
 			
-			if ($bandera){
-				$consulta .= ", ";
-			} else {
-				$bandera = true;
+			if ($attr != "id"){
+				if ($bandera){
+					$consulta .= ", ";
+				} else {
+					$bandera = true;
+				}
+				
+				$consulta .= $attr." = ".(is_numeric($value) ? $value : "'$value'")." ";
 			}
-			
-			$consulta .= $attr." = ".(is_numeric($value) ? $value : "'$value'")." ";
 		}
 	
 		$consulta .= "WHERE id = $this->id";
-		echo "$consulta<br>";
 		$conexion->query($consulta);
 	}
 	

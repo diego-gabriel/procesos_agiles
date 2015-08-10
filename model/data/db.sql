@@ -29,6 +29,12 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	tipo_usuario integer REFERENCES tipos_usuario
 );
 
+DROP TABLE IF EXISTS inscripciones;
+CREATE TABLE IF NOT EXISTS inscripciones(
+	id 		   serial NOT NULL PRIMARY KEY,
+	usuario_id integer references usuarios,
+	materia_id integer references materias
+);
 
 INSERT INTO materias (nombre) 
 	VALUES ('Procesos Agiles');

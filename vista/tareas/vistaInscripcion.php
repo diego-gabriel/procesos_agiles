@@ -18,26 +18,25 @@
             <table class="table table-striped table-hover table-bordered table-condensed">
             <tr class="info">
                 
-                <th>Materias</th>
+                <th>Materias Habilitadas</th>
+                <th>Materias Inscritas</th>
                 
             </tr>
-            <tr>
-                <?php 
-                require_once '../../model/Materia.php';
-                ?>
-                
-                <?php
-              foreach(Materia::allMaterias() as $materia){ 
-               	?>
-                <td> <input type="checkbox" name="materia" id = 'materias' value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></td>
+            <?php 
+            require_once '../../model/Materia.php';
+            ?>
             
-            
-                <?php
-                } 
-            	?> 
-            </tr>
-            
-            </table>
+            <?php
+            foreach(Materia::all() as $materia){ 
+           	?>
+           	<tr>
+               	<td> <input type="checkbox" name="materia" id = 'materias' value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></td>
+           	    <td> <?=$materia->getNombre()?></td>     <?php //por el momento devuelve todas las materias. ?>
+           	</tr>
+            <?php
+            } 
+        	?>
+        	 </table>
             <a href="index.php"><button class="btn btn-info">volver a inicio</button></a>
             <a href="nueva.php"><button class="btn btn-info">Inscribirse</button></a>
         </div>

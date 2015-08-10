@@ -94,6 +94,10 @@ class Tarea extends ObjetoPersistente{
  	public function getDescripcion(){
  		return $this->descripcion;
  	}
+ 	
+ 	public function getTable(){
+ 		return "tareas"
+ 	}
 }
 
 ?>

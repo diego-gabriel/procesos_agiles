@@ -2,22 +2,18 @@
 
 require_once "traits/accesoAPropiedades.php";
 
-function pluralize($str){
-	return $str."s";
-}
-
 abstract class ObjetoPersistente{
 		
 	use accesoAPropiedades;
 	
 	protected $id;
 	
-	protected function __construct($id = -1){
+	public function __construct($id = -1){
 		if ($id < 0){
 			$this->id = $id;
 		} else {
 			$connection = Connection::getInstance();
-			$class 		= $this->getClass();
+			$class 		= $this->getTable();
 			$data 		= $connection->query("SELECT * FROM $class WHERE id = $id");
 			
 			$this->id = $id;
@@ -36,7 +32,7 @@ abstract class ObjetoPersistente{
 		//el objeto decide si debe insertarse a la base de datos
 			if ($this->id < 0){
 				$connection 	= Connection::getInstance();
-				$class = $this->getClass();
+				$class = $this->getTable();
 				$connection->query("INSERT INTO $class DEFAULT VALUES");
 				$res = $connection->query("SELECT currval('$class"."_id_seq')");
 				$arr = pg_fetch_array($res);
@@ -56,7 +52,7 @@ abstract class ObjetoPersistente{
 		$atributos = $this->atributos();
 		$conexion = Connection::getInstance();
 		
-		$consulta = "UPDATE ".$this->getClass()." SET ";
+		$consulta = "UPDATE ".$this->getTable()." SET ";
 		$bandera = false;
 		foreach($this->atributos() as $attr => $value){
 			
@@ -74,15 +70,13 @@ abstract class ObjetoPersistente{
 		$conexion->query($consulta);
 	}
 	
-	private function getClass(){
-		return strtolower(pluralize(get_class($this)));
-	}
 	
 	
 	public function getId(){
 		return $this->id;
 	}
 	
+	public abstract function getTable();
 	protected abstract function initialize_from($aRow);
 	protected abstract function validar();
 }

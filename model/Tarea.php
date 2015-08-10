@@ -96,7 +96,7 @@ class Tarea extends ObjetoPersistente{
  	}
  	
  	public function getTable(){
- 		return "tareas"
+ 		return "tareas";
  	}
 }
 

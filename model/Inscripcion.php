@@ -64,12 +64,9 @@ class Inscripcion extends ObjetoPersistente{
 	
 	//recibe una materia o materia_id.
 	public function setMateria($materia){
-		echo get_class($materia)."<br>";
 		if ($materia instanceof Materia){
-			echo "here";	
 			$this->materia_id = $materia->getId();
 		} else {
-			echo "here 2";
 			$this->materia_id = $materia;
 		}
 	}

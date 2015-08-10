@@ -32,6 +32,7 @@ class Connection
   }
   
   public function query($aQuery){
+   // echo "$aQuery<br>";
     return pg_query($this->connection, $aQuery);
   }
   

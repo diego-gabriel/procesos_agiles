@@ -1,0 +1,7 @@
+Historia de Usuario:
+- Permitir el registro de una nueva tarea.
+
+Condiciones de Satisfaccion:
+- Registrar nueva tarea
+- Ver la nueva tarea
+- Las fechas de entrega deben ser coherentes.

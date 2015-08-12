@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="container"> 
-            <br>
+            <br> 
             <a href="#ventana1" class="btn btn-primary btn-lg" data-toggle="modal">subir tareas</a>
             <div class="modal fade" id="ventana1">
                 <div class="modal-dialog modal-lg">

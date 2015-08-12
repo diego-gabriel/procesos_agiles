@@ -13,24 +13,23 @@
          <link rel="stylesheet" href="../../css/datepicker.css">
     </head>
     <body>
-        <div class="container">
-            <h1>Lista de Tareas registradas</h1>
-            <table class="table table-striped table-hover table-bordered table-condensed">
-            <tr class="info">
-                <th>Nombre</th>
-                <th>Fecha de Inicio</th>
-                <th>fecha de Entrega</th>
-                <th>Materia</th>
-                <th>Descripcion</th>
-            </tr>
-            <?php 
-                require_once '../../model/Tarea.php';
-                foreach(Tarea::all() as $tarea){ 
-                require "_lineaTarea.php";
-                }
-            ?> 
-            </table>
+       <div class="container" style="text-align:center;">
+        	
+        	<br>
+            <font color="blue">
+  			 <h2>MENU PRINCIPAL</h2>
+			</font>
+            </br>
             <a href="nueva.php"><button class="btn btn-primary">Registrar Nueva Tarea</button></a>
+            <a href="vistaInscripcion.php"><button class="btn btn-primary">    Inscribirse      </button></a>
+            <a href="subirArchivo.php"><button class="btn btn-primary">   Subir Tarea       </button></a>
+            <a href="index.php"><button class="btn btn-primary">     Ver Tareas      </button></a>
+            <a href="nueva.php"><button class="btn btn-primary">......</button></a>
+            <a href="../../index.php"><button class="btn btn-primary">Cerrar sesion </button></a>
+        	<br>
+        	
+
+        	<img  src="../../imagenes/agiles.jpg" alt="portadaInicio" class="img-thumbnail" width="700" height="700">
         </div>
     </body>
 </html>

@@ -26,9 +26,10 @@
         <script type="text/javascript" src="../../js/validacionFechas.js"></script>
         
 </head>
-
 <body>
 	<div class="container">
+		
+        	
 		<h1> Registro de una nueva tarea</h1>
 		<form method="post" action="../../tareas/nueva.php">
 			<div class="row">
@@ -122,6 +123,7 @@
 		
 				<a href="index.php"><button class="btn btn-primary">Ver Tareas</button></a>
 	</div>
+	
 
 	<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../dist/bootstrap-clockpicker.min.js"></script>

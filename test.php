@@ -4,24 +4,32 @@ include_once "model/Estudiante.php";
 include_once "model/Materia.php";
 include_once "model/Inscripcion.php";
 /*
-$estudiante = new Estudiante(3);
+$estudiante = new Estudiante();
 
 $estudiante->setNombreUsuario("Red Panda");
-$estudiante->setClave("galletitas");
-
-$materia = new Materia(2);
-$inscripcion = new Inscripcion(11);
+$estudiante->setContrasena("galletitas");
+$estudiante->setNombre("Alan");
+$estudiante->setApellido("Turing");
+$estudiante->setCorreo("alan.turing@gmail.com");
+$estudiante->setTelefono(70310928);
+$estudiante->guardar();
+$materia = new Materia(1);
+$inscripcion = new Inscripcion();
 $inscripcion->setUsuario($estudiante);
 $inscripcion->setMateria($materia);
-
 $inscripcion->guardar();
-$estudiante->guardar();
+
+
+$materia = new Materia();
+$materia->setNombre("Introduccion a la Programacion");
+$materia->guardar();
 */
 ?>
 <h1>Estudiantes</h1>
 <?php
 foreach (Estudiante::all() as $estudiante){
     var_dump($estudiante->atributos());
+    echo "<h3> inscrito en: </h3>";
     var_dump($estudiante->materias());
     echo "<h3>tareas: </h3>";
     var_dump($estudiante->tareas());

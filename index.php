@@ -62,7 +62,7 @@
                                     <div class="form-group" style="padding: 5px 20px">
                                         <div class="input-group">
                                             <span class="input-group-addon" style="width: 160px">Contraseña:</span>
-                                            <input class="form-control" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required>
+                                            <input class="form-control" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contrasena" required>
                                         </div>
                                     </div>
                                     <div class="form-group">

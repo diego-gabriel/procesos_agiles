@@ -39,6 +39,27 @@ class Estudiante extends Usuario{
 		
 		return $res;
 	}
+	//devuelve las materias a las que el estudiante puede inscribirse
+	public function materiasHabilitadas(){
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT materias.id 
+										  FROM materias 
+										  WHERE materias.id NOT IN 
+										  (SELECT materias.id 
+										  FROM usuarios, inscripciones, materias  
+										  WHERE tipo_usuario = ".Usuario::ESTUDIANTE." AND  
+										  usuarios.id = $this->id AND 
+										  usuarios.id = inscripciones.usuario_id AND 
+										  materias.id = inscripciones.materia_id)");
+		$res 		= array();
+		
+		while ($id = pg_fetch_array($result)[0]){
+			$res[] = new Materia($id);
+		}
+		
+		return $res;
+	}
+	
 	//devuelve todas las tareas del estudiante
 	public function tareas(){
 		

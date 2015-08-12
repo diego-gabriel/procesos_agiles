@@ -11,21 +11,8 @@
 	<title>Calendario de Tareas</title>
         <link href="librerias/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
 
         <link href="Librerias/font-awesome/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" href="../../css/bootstrap.css">
-	<link rel="stylesheet" href="../../css/datepicker.css">
-
-	<script src="../../js/jquery.min.js"></script>
-	<script src="../../js/bootstrap.js"></script>
-	<script src="../../js/bootstrap-datepicker.js"></script>
-	
-        <link rel="stylesheet" href="../../css/jquery1-10.css" />
-        <script src="../../dist/jquery-datepicker.js"></script>
-        <script src="jquery.ui.datepicker-es.js"></script>
-        <script type="text/javascript" src="../../js/validacionFechas.js"></script>
         
         <script src="librerias/js/sb-admin.js"></script>
         <link href="librerias/css/style11.css" rel="stylesheet" type="text/css" />
@@ -79,9 +66,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../dist/bootstrap-clockpicker.min.js"></script>
-    <script type="text/javascript" src="../../assets/js/highlight.min.js"></script>
 </body>
 
 </html>

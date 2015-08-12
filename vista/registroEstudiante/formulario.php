@@ -38,7 +38,7 @@
 	<div class="container">
 		<h1> Registro de un Estudiante</h1>
                 <br>
-		<form method="post" action="">
+                <form method = "post" id="FormularioRegistroEstudiante" action="../../controlador/registroEstudiante.php" role="form" enctype="multipart/data-form">
                     
                     <div class="container-fluid">
                         <div class="row">
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class ="form-group">
-                            <a href="index.php"><button class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Registrar</button></a>
+                            <button type="submit" name="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Registrar</button>
                         </div>
                     </div>
 		</form>

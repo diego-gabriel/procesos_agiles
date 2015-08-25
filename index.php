@@ -36,14 +36,14 @@
                                 <h1>Bienvenido al Calendario de Tareas</h1>
                                 <img  src="imagenes/agiles.jpg" alt="portadaInicio" class="img-thumbnail" width="700" height="700">
                             </div>
-                            <form method="post" action="Controlador/ingreso.php">
+                            <form method="post" action="/controlador/ingreso.php">
                                 <div class="sidebar">
                                     <h2>Ingresar al Sistema</h2>
                                     <br>   
                                     <div class="form-group" style="padding: 5px 20px">
                                         <div class="input-group">
                                             <span class="input-group-addon" style="width: 160px">Nombre de Usuario:</span>
-                                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Ingrese su nombre de usuario" required>
+                                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Ingrese nombre de usuario" required>
                                         </div>
                                     </div>
                                     <div class="form-group" style="padding: 5px 20px">

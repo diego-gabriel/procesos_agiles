@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once "../model/Estudiante.php";
+if (isset($_SESSION['usuario_id'])){
+    $estudiante = new Estudiante($_SESSION['usuario_id']);
+} else {
+    header("Location: /index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,16 +25,15 @@
        <div class="container" style="text-align:center;">
         	
         	<br>
-            <font color="blue">
-  			 <h2>MENU PRINCIPAL</h2>
+            <font FACE="courier"  color="blue">
+  			 <h1><b>MENU PRINCIPAL</b></h1>
+  			 <p><b>Bienvenido: </b><i><?=$estudiante->getNombreUsuario()?></i></p>
 			</font>
             </br>
-            <a href="nueva.php"><button class="btn btn-primary">Registrar Nueva Tarea</button></a>
-            <a href="vistaInscripcion.php"><button class="btn btn-primary">    Inscribirse      </button></a>
-            <a href="subirArchivo.php"><button class="btn btn-primary">   Subir Tarea       </button></a>
-            <a href="index.php"><button class="btn btn-primary">     Ver Tareas      </button></a>
-            <a href="nueva.php"><button class="btn btn-primary">......</button></a>
-            <a href="../../index.php"><button class="btn btn-primary">Cerrar sesion </button></a>
+            <a href="/inscripciones/nueva.php"><button class="btn btn-primary glyphicon glyphicon-check">    Inscribirse      </button></a>
+            <a href="/vista/tareas/subirArchivo.php"><button class="btn btn-primary glyphicon glyphicon-open" class="glyphicon glyphicon-open">   Subir Tarea       </button></a>
+            <a href="tareas.php"><button class="btn btn-primary glyphicon glyphicon-file ">     Ver Tareas      </button></a>
+            <a href="../../index.php"><button class="btn btn-primary glyphicon glyphicon-remove-circle"> Cerrar sesion </button></a>
         	<br>
         	
 

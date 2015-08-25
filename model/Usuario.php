@@ -18,10 +18,24 @@ abstract class Usuario extends ObjetoPersistente{
 	protected $correo;
 	protected $tipo_usuario;
 	
-	
 	function __construct($tipo, $id = -1){
-		parent::__construct($id);
 		$this->tipo_usuario = $tipo;
+		parent::__construct($id);
+	}
+	
+	public static function autenticar($usuario, $contrasena){
+		$conexion 	= Connection::getInstance();
+		$resultado 	= $conexion->query("SELECT * FROM usuarios 
+										WHERE nombre_usuario = '$usuario' 
+										AND contrasena = '$contrasena'");
+		$usuario = null;
+			
+		if (pg_num_rows($resultado) >= 1){
+			while($id = pg_fetch_array($resultado)[0])
+				$usuario = $id;
+		}
+		
+		return $usuario;
 	}
 	
 	public function getNombreUsuario(){
@@ -34,6 +48,10 @@ abstract class Usuario extends ObjetoPersistente{
 	
 	public function getContrasena(){
 		return $this->contrasena;
+	}
+	
+	public function getTipoUsuario(){
+		return $this->tipo_usuario;
 	}
 	
 	public function setContrasena($contrasena){
@@ -68,7 +86,13 @@ abstract class Usuario extends ObjetoPersistente{
 	
 	protected function initialize_from($aRow){
 		$this->nombre_usuario = $aRow['nombre_usuario'];
-		$this->contrasena		  = $aRow['contrasena'];
+		$this->contrasena	  = $aRow['contrasena'];
+		$this->nombre 		  = $aRow['nombre'];
+		$this->apellido		  = $aRow['apellido'];
+		$this->telefono 	  = $aRow['telefono'];
+		$this->correo 		  = $aRow['correo'];
+		$this->tipo_usuario   = $aRow['tipo_usuario'];
+		
 	}
 	
 	protected function validar(){

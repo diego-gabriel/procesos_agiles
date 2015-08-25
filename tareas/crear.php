@@ -1,25 +1,23 @@
 <?php
+    
+    session_start();
+    require_once "../model/Profesor.php";
+    if (isset($_SESSION['usuario_id'])){
+        $profesor = new Profesor($_SESSION['usuario_id']);
+    } else {
+        header("Location: /index.php");
+    }
 
     if (!isset($_POST['name'])){
         header('location: /tareas/nueva.php');
     }
     else {
-        include '../model/Tarea.php';
-        
-        $fechaInicio    = $_POST['fechaInicioE'];
-        $fechaEntrega   = $_POST['fechaFinalE'];
-        $nombreTarea    = $_POST['name'];
-        $nombreMateria  = $_POST['materia'];
-        $descripcion    = $_POST['descripcion'];
-        $horaInicio     = $_POST['horaIni'];
-        $horaFin        = $_POST['horaFin'];
+        require_once '../model/Tarea.php';
         
         $nuevaTarea = new Tarea();
-        $nuevaTarea->setNombre($nombreTarea);
-        $nuevaTarea->setDescripcion($descripcion);
-        $nuevaTarea->setMateria($nombreMateria);
-        $nuevaTarea->setFechaInicio($fechaInicio, $horaInicio);
-        $nuevaTarea->setFechaEntrega($fechaEntrega, $horaFin);
+        
+        require "_guardarDesdePost.php";
+        
         if ($nuevaTarea->guardar()){
             $mensaje = "La tarea fue registrada con exito";
             echo "<script>alert('$mensaje'); window.location='../vista/tareas/nueva.php';</script>";

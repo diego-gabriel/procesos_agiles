@@ -13,6 +13,14 @@ class Tarea extends ObjetoPersistente{
 	private $nombre;
 	private $descripcion;
 	private $materia_id;
+	private $profesor_id;
+	private $estado;
+	
+	const PENDIENTE  = "Pendiente";
+	const ENTREGADA  = "Entregada";
+	const ATRASADA   = "Atrasada";
+	const VISIBLE 	 = "Visible";
+	const NO_VISIBLE = "No Visible";
 	
 	function __construct($id = -1){
 		parent::__construct($id);
@@ -24,6 +32,8 @@ class Tarea extends ObjetoPersistente{
 		$this->nombre 	    	= $aRow['nombre'];
 		$this->descripcion		= $aRow['descripcion'];
 		$this->materia_id	 	= $aRow['materia_id'];
+		$this->profesor_id      = $aRow['profesor_id'];
+		$this->estado           = $aRow['estado'];
 	}
 	
 	public static function all(){
@@ -45,7 +55,7 @@ class Tarea extends ObjetoPersistente{
 		$valido = true;
 		
 		$connection 	= Connection::getInstance();
-        $consultaNombre = "SELECT * FROM tareas WHERE nombre = '$this->nombre' AND materia_id = '$this->materia_id'";
+        $consultaNombre = "SELECT * FROM tareas WHERE nombre = '$this->nombre' AND materia_id = '$this->materia_id' AND id <> '$this->id'";
         $resultado 		= $connection->query($consultaNombre);
         $registros 		= pg_num_rows($resultado);
         
@@ -57,6 +67,9 @@ class Tarea extends ObjetoPersistente{
 	
 	public function setMateria($materia_id){
 		$this->materia_id = $materia_id;
+	}
+	public function setProfesor($profesor_id){
+		$this->profesor_id = $profesor_id;
 	}
 	
 	public function setNombre($nombre){
@@ -74,9 +87,19 @@ class Tarea extends ObjetoPersistente{
  	public function setFechaEntrega($date, $hour){
  		$this->fecha_entrega = new Timestamp($date, $hour);
  	}
+ 	public function setEstado($estado){
+ 		if ($estado == Tarea::VISIBLE)
+ 			$this->estado = "t";
+ 		if ($estado == Tarea::NO_VISIBLE)
+ 			$this->estado = "f";
+ 	}
  	
  	public function getMateria(){
  		return new Materia($this->materia_id);
+ 	}
+ 	
+ 	public function getProfesor(){
+ 		return $this->profesor_id;
  	}
  	
  	public function getNombre(){
@@ -93,6 +116,14 @@ class Tarea extends ObjetoPersistente{
  	
  	public function getDescripcion(){
  		return $this->descripcion;
+ 	}
+ 	
+ 	public function getEstado(){
+ 		$resultado = Tarea::VISIBLE;
+ 		if($this->estado=="f"){
+ 			$resultado = Tarea::NO_VISIBLE;
+ 		}
+ 		return $resultado;
  	}
  	
  	public function getTable(){

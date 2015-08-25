@@ -29,8 +29,13 @@ require_once '../model/data/Connection.php';
             }else{
                 $consulta = "INSERT INTO usuarios(nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) VALUES('$nombreUsuario', '$contraseña', '$nombre', '$apellido', '$telefono', '$correo', '1')";
                 $conexion->query($consulta);
+                session_start();
+                
+				$res = $conexion->query("SELECT currval('usuarios"."_id_seq')");
+				$arr = pg_fetch_array($res);
+				$_SESSION['usuario_id'] = $arr[0];
                 $mensaje = 'Registro exitosamente';
-                echo "<script>alert('$mensaje'); window.location='../vista/registroEstudiante/formulario.php';</script>";            
+                echo "<script>alert('$mensaje'); window.location='/estudiantes/inicio.php';</script>";            
             }
         }
     } 

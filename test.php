@@ -32,7 +32,10 @@ foreach (Estudiante::all() as $estudiante){
     echo "<h3> inscrito en: </h3>";
     var_dump($estudiante->materias());
     echo "<h3>tareas: </h3>";
-    var_dump($estudiante->tareas());
+    foreach($estudiante->tareas() as $tarea){
+        echo "<p> estado: ".var_dump($estudiante->entrega($tarea))."</p>";
+        var_dump($tarea);
+    }
     
     echo "-------------------------<br>";
 }

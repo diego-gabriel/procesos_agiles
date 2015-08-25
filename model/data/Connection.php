@@ -10,8 +10,7 @@
 // git clone https://github.com/diego-gabriel/procesos_agiles.git
 // mv procesos_agiles/ workspace
 
-class Connection
-{
+class Connection {
   private static $instance;
   private $connection;
   
@@ -32,7 +31,7 @@ class Connection
   }
   
   public function query($aQuery){
-   // echo "$aQuery<br>";
+    //echo "$aQuery<br>";
     return pg_query($this->connection, $aQuery);
   }
   

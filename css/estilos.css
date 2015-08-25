@@ -1,0 +1,17 @@
+.header{
+    background: blue;
+    color: #e7e7e7;
+}
+.color1{
+    background-color: blue;
+    color: white !important;
+}
+.drp{
+    margin-right: 15px;
+    display: inline-block !important;
+}
+.toggle{
+        padding: 15px !important;
+        display: block;
+        color: #f8f8f5;
+}

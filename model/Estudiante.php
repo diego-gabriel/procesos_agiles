@@ -2,6 +2,7 @@
 require_once 'Usuario.php';
 require_once 'Materia.php';
 require_once 'Tarea.php';
+require_once 'Entrega.php';
 
 class Estudiante extends Usuario{
 
@@ -78,6 +79,40 @@ class Estudiante extends Usuario{
 		}
 		
 		return $res;
+	}
+	
+	//devuelve una Entrega si la tarea fue entregada, sino devuelve NULL
+	public function entrega($tarea){
+		$tarea_id;
+		if ($tarea instanceof Tarea){
+			$tarea_id = $tarea->getId();
+		} else {
+			$tarea_id = $tarea;
+		}
+		
+		$entrega = null;
+		$conexion  = Connection::getInstance();
+		$resultado = $conexion->query("SELECT entregas.id 
+									   FROM entregas, usuarios, tareas 
+									   WHERE 
+									   entregas.usuario_id = $this->id AND 
+									   entregas.tarea_id = $tarea_id");
+		while ($id = pg_fetch_array($resultado)[0]){
+			$entrega = new Entrega($id);
+		}							   
+		return $entrega;
+	}
+	
+	//devuelve el archivo entregado para una tarea
+	public function archivoDe($tarea){
+		$entrega = $this->entrega($tarea);
+		return $entrega == null ? null : $entrega->getArchivo();
+	}
+	
+	//devuelve el estado de una tarea
+	
+	public function estadoDe($tarea){
+		return $this->entrega($tarea) == null ? Tarea::PENDIENTE : Tarea::ENTREGADA;
 	}
 	
 }

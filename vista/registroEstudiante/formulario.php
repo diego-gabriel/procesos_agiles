@@ -36,7 +36,9 @@
         </nav>
     <br><br><br>
 	<div class="container">
-		<h1> Registro de un Estudiante</h1>
+	    <font face="courier" color="blue">
+		<h1><b> Registro de un Estudiante</b></h1>
+            </font>
                 <br>
                 <form method = "post" id="FormularioRegistroEstudiante" action="../../controlador/registroEstudiante.php" role="form" enctype="multipart/data-form">
                     
@@ -45,7 +47,7 @@
                             <div class="col-md-6">
                                 <div class ="form-group">
                                     <div class="input-group">
-                                        <span class="input-group-addon" style="width: 170px">Nombre de Usuario:</span>
+                                        <span class="input-group-addon" style="width: 170px"> Nombre de Usuario:</span>
                                         <input required type="text" style="width: 370px" class="form-control" name="nombreUsuario" id="nombreUsuario" pattern="^[a-zA-Z]{3}[a-zA-z0-9_\\_\ü]{0,9}$" placeholder="Escriba un nombre de usuario" title="Minimo 3 caracteres y Maximo 12. Los primeros tres caracteres tienen que ser letras.">
                                     </div>
                                 </div>
@@ -67,7 +69,7 @@
                             <div class="col-md-6">
                                 <div class ="form-group">
                                     <div class="input-group">
-                                        <span class="input-group-addon"style="width: 170px">Repita su contraseña:</span>
+                                        <span class="input-group-addon"style="width: 170px"> Repita su contraseña:</span>
                                         <input required type="password" style="width: 370px" class="form-control" name="contraseña1" id="contraseña1" placeholder="Escriba su contraseña nuevamente">
                                     </div>
                                 </div>

@@ -31,6 +31,7 @@
 		
         <body style="background:#F0F8FF">
         <meta charset="UTF-8">
+        
         <title>Tarea: <?=$tarea->getNombre()?></title>
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,21 +54,32 @@
 		<?php
 			}
 		?>
-		<h1>Tarea: <?=$tarea->getNombre()?></h1>
-		<p><b>Estado: </b> <?=$estudiante->estadoDe($tarea)?></p>
-		<p>Publicada en: <?=$tarea->getFechaInicio()->mostrar()?></p>
-		<p>Fecha limite de entrega: <?=$tarea->getFechaEntrega()->mostrar()?></p>
-		<p>Descripcion: <i> <?=$tarea->getDescripcion()?></i></p>
+	<table class="table table-striped table-bordered table-condensed ">
+			<tr class="info">
+				<br><br><br>
+				<th><font face="courier" color="blue">	<h1><b>Tarea:</b> <?=$tarea->getNombre()?></h1> </font></th>
+ 			</tr>
+ 		<tr>
+        <td><font face="courier" color="black">	<p><b>Estado: </b> <?=$estudiante->estadoDe($tarea)?></p>
+		<p><b>Publicada en:</b> <?=$tarea->getFechaInicio()->mostrar()?></p>
+		<p><b>Fecha limite de entrega:</b> <?=$tarea->getFechaEntrega()->mostrar()?></p>
+		<p><b>Descripcion:</b> <i> <?=$tarea->getDescripcion()?></i></p>
+		</font>
+		</td>
+		</tr>
+	</table>
 		<?php
 			if ($estudiante->estadoDe($tarea) == Tarea::PENDIENTE){
 				require "_entrega.php";
 			} else {
+				if ($estudiante->estadoDe($tarea) == Tarea::ENTREGADA){
 		?>
-			<p></p><a href = '<?=$estudiante->archivoDe($tarea)?>'> Ver tarea entregada </a></p>
+					<p><a href = '<?=$estudiante->archivoDe($tarea)?>'> Ver tarea entregada </a></p>
 		<?php
+				}
 			}
 		?>
-		
+		<br> <br>
 		<a href="/estudiantes/tareas.php"> Volver</a>
 	</body>
 </html>

@@ -22,9 +22,9 @@
        <div class="container">
         	
         	<br>
-            <font face="courier" color="orange">
+            <font face="courier" color="blue">
                 <center>
-  			 <h1>MENU PRINCIPAL PROFESOR</h1>
+  			 <h1><b>MENU PRINCIPAL PROFESOR</b></h1>
   			 <p><b>Bienvenido</b></p>
   			 </center>
 			</font>

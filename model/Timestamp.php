@@ -10,6 +10,11 @@ class Timestamp{
     private $second;
     private $time_zone;
     
+    public static function ahora(){
+        date_default_timezone_set('America/La_Paz');
+        return new Timestamp(date('Y-m-d H:i:s+00', time()));
+    }
+    
     function __construct($date, $time = NULL, $zone = "+00"){
         
         if ($time == NULL){
@@ -66,6 +71,9 @@ class Timestamp{
     }
     public function hora(){
         return "$this->hour:$this->minute";
+    }
+    public function mayorQue($fecha){
+        return strcmp($this->__toString(), $fecha->__toString()) > 0;
     }
 }
 

@@ -3,6 +3,7 @@ require_once 'Usuario.php';
 require_once 'Materia.php';
 require_once 'Tarea.php';
 require_once 'Entrega.php';
+require_once 'Timestamp.php';
 
 class Estudiante extends Usuario{
 
@@ -112,7 +113,9 @@ class Estudiante extends Usuario{
 	//devuelve el estado de una tarea
 	
 	public function estadoDe($tarea){
-		return $this->entrega($tarea) == null ? Tarea::PENDIENTE : Tarea::ENTREGADA;
+		return $this->entrega($tarea) != null ? Tarea::ENTREGADA : 
+		($tarea->getFechaEntrega()->mayorQue(Timestamp::ahora()) ? 
+		Tarea::PENDIENTE : Tarea::ATRASADA);
 	}
 	
 }

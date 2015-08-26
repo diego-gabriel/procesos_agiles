@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../model/Estudiante.php";
+require_once "../model/Timestamp.php";
 if (isset($_SESSION['usuario_id'])){
     $estudiante = new Estudiante($_SESSION['usuario_id']);
 } else {
@@ -26,6 +27,7 @@ if (isset($_SESSION['usuario_id'])){
             <font FACE="courier" color="blue">
             <h1><center><b>Lista de Tareas de: </b> <?=$estudiante->getNombreUsuario()?></center></h1>
             </font>
+            <center>Fecha y hora del servidor: <?=Timestamp::ahora()->mostrar()?></center> <br>
             <table class="table table-striped table-hover table-bordered table-condensed">
             <tr class="info">
                

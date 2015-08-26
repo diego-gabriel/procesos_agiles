@@ -31,7 +31,6 @@ if (isset($_SESSION['usuario_id'])){
 			</font>
             </br>
             <a href="/inscripciones/nueva.php"><button class="btn btn-primary glyphicon glyphicon-check">    Inscribirse      </button></a>
-            <a href="/vista/tareas/subirArchivo.php"><button class="btn btn-primary glyphicon glyphicon-open" class="glyphicon glyphicon-open">   Subir Tarea       </button></a>
             <a href="tareas.php"><button class="btn btn-primary glyphicon glyphicon-file ">     Ver Tareas      </button></a>
             <a href="../../index.php"><button class="btn btn-primary glyphicon glyphicon-remove-circle"> Cerrar sesion </button></a>
         	<br>

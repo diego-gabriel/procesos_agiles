@@ -40,7 +40,7 @@ if (isset($_SESSION['usuario_id'])){
                 require_once '../model/Tarea.php';
                 $ver_entrega = true;
                 foreach(Tarea::all() as $tarea){ 
-                    if ($tarea->getEstado == Tarea::VISIBLE)
+                    if ($tarea->getEstado() == Tarea::VISIBLE)
                         require "../vista/tareas/_lineaTarea.php";
                 }
             ?> 

@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -43,17 +44,27 @@
                                     <div class="form-group" style="padding: 5px 20px">
                                         <div class="input-group">
                                             <span class="input-group-addon" style="width: 160px">Nombre de Usuario:</span>
-                                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Ingrese nombre de usuario" required>
+                                            <input class="form-control" type="text" style="width: 200px" name="usuario" id="usuario" placeholder="Ingrese nombre de usuario" required>
                                         </div>
                                     </div>
-                                    <div class="form-group" style="padding: 5px 20px">
+                                    <style type="text/css">
+                
+                                         #absoluto {
+                                        position:absolute;
+                                        left: 15px;
+                                        top : 155px;
+                                        }
+                                    </style>
+                                    <div id="absoluto"class="form-group" style="padding: 5px 20px">
                                         <div class="input-group">
-                                            <span class="input-group-addon" style="width: 160px">Contraseña:</span>
-                                            <input class="form-control" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contrasena" required>
+                                            <span class="input-group-addon" style="width: 152px">Contraseña:</span>
+                                            <input class="form-control" type="password" style="width: 200px" name="contrasena" id="contrasena" placeholder="    Ingrese su contrasena" required>
                                         </div>
+                                        
                                     </div>
+                                    <br><br><br>
                                     <div class="form-group">
-                                        <div align="right" style="padding: 5px 20px">
+                                        <div align="right" style="padding: 10px 50px">
                                             <a class="btn btn-primary pull-left" href="vista/registroEstudiante/formulario.php"> Regístrate</a>
                                             <button type="submit" name="ingresar" class="btn btn-primary" id="btn-registrarUser"><span class="glyphicon glyphicon-ok"></span> Ingresar</button>
                                         </div>

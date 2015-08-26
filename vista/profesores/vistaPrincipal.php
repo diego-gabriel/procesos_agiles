@@ -3,9 +3,9 @@
 <html lang="en">
     <head>
         
-            <body background="../../imagenes/fondo3.jpg" bgcolor="FFCECB"> 
+           <!-- <body background="../../imagenes/fondo3.jpg" bgcolor="FFCECB"> --> 
 
-
+        <body style="background:#F0F8FF">
         <meta charset="UTF-8">
         <title>Tareas Registradas</title>
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,11 +46,9 @@
                 
                     
                      
-                    <a href="../tareas/nueva.php"><button class="btn btn-info glyphicon glyphicon-open">  Subir Tarea</button></a> <br><br><br><br>
+                    <a href="../tareas/nueva.php"><button class="btn btn-info glyphicon glyphicon-open">  Crear Tarea</button></a> <br><br><br><br>
                       
                     <a href="tareasProfesor.php"><button class="btn btn-info glyphicon glyphicon-file"> Ver tareas   </button></a> <br> <br><br><br>
-                    
-                    <a href="modificarT.php"><button class="glyphicon glyphicon-pencil btn btn-info ">    Modificar Tareas  </button></a> <br><br><br><br>
                   
                     <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
                    

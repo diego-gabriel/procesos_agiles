@@ -10,7 +10,7 @@ $nombreMateria  = $_POST['materia'];
 $descripcion    = $_POST['descripcion'];
 $horaInicio     = $_POST['horaIni'];
 $horaFin        = $_POST['horaFin'];
-$estado        = $_POST['estado'];
+$estado         = $_POST['estado'];
 
 
 $nuevaTarea->setNombre($nombreTarea);

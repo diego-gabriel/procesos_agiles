@@ -118,6 +118,17 @@ if (isset($_SESSION['usuario_id'])){
             	</select>
 					
 				</div>
+					<div class = "col-md-4">
+					<div class = "form-group">
+						<label for="estado">Estado:</label>
+						<br>	
+						<select name="estado" id="estados">
+							<option value="<?=Tarea::VISIBLE?>" ><?=Tarea::VISIBLE?></option>
+							<option value="<?=Tarea::NO_VISIBLE?>"><?=Tarea::NO_VISIBLE?></option>
+						</select>
+					</div>
+					
+				</div>
 			</div>
 		
 

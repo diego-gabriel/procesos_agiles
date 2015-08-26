@@ -23,8 +23,6 @@
 		} else {
 			$entrega = null;
 		}
-		
-		var_dump($entrega);
 	}
 ?>
 <!DOCTYPE html>

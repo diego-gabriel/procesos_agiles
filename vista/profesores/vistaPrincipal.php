@@ -16,7 +16,7 @@
          <link rel="stylesheet" href="../../css/bootstrap.css">
          <link rel="stylesheet" href="../../css/datepicker.css">
          <link rel="stylesheet" href="../../css/estilos.css">
-         <link href="../../librerias/css/style11.css" rel="stylesheet" type="text/css" />
+         
     </head>
     <body >
         <nav class="navbar navbar-default navbar-fixed-top header" role="navigation" style="margin-bottom: 0">
@@ -25,15 +25,17 @@
             </div>
         </nav>
         <br><br>
+        
        
+        
        <div class="container">
         	
         	<br>
             <font color="blue">
-            <center>
+                <center>
                     
   			 <h1 id="titulo"><b>MENU PRINCIPAL PROFESOR</b></h1>
-  			 <img  src="../../imagenes/agiles.jpg" class="img-thumbnail">
+  			 
   			 </center>
 			</font>
             </br>
@@ -70,7 +72,7 @@
                 
             </style>
             
-            <div class="sidebar">
+            <div class="content" align="left" style="padding: 50px 100px">
                 
                     
                      
@@ -79,6 +81,18 @@
                     <a href="tareasProfesor.php"><button class="btn btn-info glyphicon glyphicon-file"> Ver tareas   </button></a> <br> <br><br><br>
                   
                     <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
+                   
+                  <div id="absoluto"> <img  src="../../imagenes/agiles.jpg">  </div>
+                   
+                     
             </div>
+           
+            
+        
+        
+            
+                
+        	
+    
     </body>
 </html>

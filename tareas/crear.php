@@ -20,7 +20,7 @@
         
         if ($nuevaTarea->guardar()){
             $mensaje = "La tarea fue registrada con exito";
-            echo "<script>alert('$mensaje'); window.location='../vista/tareas/nueva.php';</script>";
+            echo "<script>alert('$mensaje'); window.location='../vista/profesores/tareasProfesor.php';</script>";
         }else {
              $mensaje = "El nombre de la tarea ya fue registrada. Por favor elija otro nombre";
              echo "<script>alert('$mensaje'); window.location='../vista/tareas/nueva.php';</script>";

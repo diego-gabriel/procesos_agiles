@@ -27,7 +27,7 @@
         </nav>
         <br><br><br>
         <div class="container">
-            <font face="courier" color="blue">
+            <font color="blue">
             <h1><center>Lista de Tareas registradas</center></h1>
             <br><br>
             </font>

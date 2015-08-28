@@ -42,7 +42,12 @@
 	    <link rel="stylesheet" href="/css/datepicker.css">
 	</head>
 	<body>
-		
+		<nav class="navbar navbar-default navbar-fixed-top header" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand color1" href="../estudiantes/inicio.php">Inicio</a>
+            </div>
+        </nav>
+		<br><br>
 		<?php
 			if (isset($entrega)){
 		?>
@@ -53,13 +58,15 @@
 			</div>
 		<?php
 			}
-		?>
+		?><br><br><br>
+		<div class="container">
 	<table class="table table-striped table-bordered table-condensed ">
 			<tr class="info">
-				<br><br><br>
+				
 				<th><font face="courier" color="blue">	<h1><b>Tarea:</b> <?=$tarea->getNombre()?></h1> </font></th>
  			</tr>
  		<tr>
+ 			
         <td><font face="courier" color="black">	<p><b>Estado: </b> <?=$estudiante->estadoDe($tarea)?></p>
 		<p><b>Publicada en:</b> <?=$tarea->getFechaInicio()->mostrar()?></p>
 		<p><b>Fecha limite de entrega:</b> <?=$tarea->getFechaEntrega()->mostrar()?></p>
@@ -68,6 +75,7 @@
 		</td>
 		</tr>
 	</table>
+	</div>
 		<?php
 			if ($estudiante->estadoDe($tarea) == Tarea::PENDIENTE){
 				require "_entrega.php";

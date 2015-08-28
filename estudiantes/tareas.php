@@ -21,13 +21,21 @@ if (isset($_SESSION['usuario_id'])){
 	     <link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
          <link rel="stylesheet" href="../../css/bootstrap.css">
          <link rel="stylesheet" href="../../css/datepicker.css">
+         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+         <script type="text/javascript" src="/js/reloj.js"></script>
     </head>
     <body>
+        <nav class="navbar navbar-default navbar-fixed-top header" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand color1" href="../estudiantes/inicio.php">Inicio</a>
+            </div>
+        </nav>
+        <br><br><br><br>
         <div class="container">
             <font FACE="courier" color="blue">
             <h1><center><b>Lista de Tareas de: </b> <?=$estudiante->getNombreUsuario()?></center></h1>
             </font>
-            <center>Fecha y hora del servidor: <?=Timestamp::ahora()->mostrar()?></center> <br>
+            <center>Fecha y hora del servidor: <span id = 'reloj'></span></center> <br>
             <table class="table table-striped table-hover table-bordered table-condensed">
             <tr class="info">
                

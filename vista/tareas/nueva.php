@@ -22,6 +22,8 @@ if (isset($_SESSION['usuario_id'])){
 	<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
+	<link rel="stylesheet" href="../../css/estilos.css">
+	
 
 	<link rel="stylesheet" href="../../css/bootstrap.css">
 	<link rel="stylesheet" href="../../css/datepicker.css">
@@ -37,10 +39,17 @@ if (isset($_SESSION['usuario_id'])){
         
 </head>
 <body>
+	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand color1" href="../profesores/vistaPrincipal.php">Inicio</a>
+            </div>
+        </nav>
+        <br><br><br>
 	<div class="container">
 		
-        <font face="courier" color="blue">	
+        <font color="blue">	
 		<h1><center><b> Registro de una nueva tarea</b></center></h1>
+		<br><br>
 		</font>
 		<form method="post" action="../../tareas/nueva.php">
 			<div class="row">
@@ -142,10 +151,6 @@ if (isset($_SESSION['usuario_id'])){
 				
 			</div>
 		</form>
-		
-				<a href="../profesores/tareasProfesor.php"><button class="btn btn-primary glyphicon glyphicon-eye-open"> Ver Tareas</button></a>
-	</div>
-	
 
 	<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../dist/bootstrap-clockpicker.min.js"></script>

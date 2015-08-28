@@ -25,6 +25,7 @@ if (isset($_SESSION['usuario_id'])){
 	<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
+	<link rel="stylesheet" href="../../css/estilos.css">
 
 	<link rel="stylesheet" href="../../css/bootstrap.css">
 	<link rel="stylesheet" href="../../css/datepicker.css">
@@ -40,6 +41,12 @@ if (isset($_SESSION['usuario_id'])){
         
 </head>
 <body>
+	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand color1" href="../profesores/vistaPrincipal.php">Inicio</a>
+            </div>
+        </nav>
+        <br><br><br>
 	<div class="container">
 		
         <font face="courier" color="orange">	

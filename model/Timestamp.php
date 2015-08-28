@@ -15,7 +15,7 @@ class Timestamp{
         return new Timestamp(date('Y-m-d H:i:s+00', time()));
     }
     
-    function __construct($date, $time = NULL, $zone = "+00"){
+    function __construct($date, $time = NULL, $zone = "-04"){
         
         if ($time == NULL){
             $this->construct_from_timestamp($date);
@@ -62,8 +62,8 @@ class Timestamp{
         return "$this->year-$this->month-$this->day $this->hour:$this->minute:$this->second".$this->time_zone;
     }
     
-    public function mostrar(){
-        return "$this->year-$this->month-$this->day $this->hour:$this->minute";
+    public function mostrar($seconds = false){
+        return "$this->year-$this->month-$this->day $this->hour:$this->minute".($seconds ? ":$this->second" : "");
     }
     
     public function fecha(){

@@ -49,7 +49,7 @@ if (isset($_SESSION['usuario_id'])){
         <br><br><br>
 	<div class="container">
 		
-        <font face="courier" color="orange">	
+        <font face="courier" color="blue">	
 		<h1><center><b> Modificar Tarea</b></center></h1>
 		<br><br>
 		</font>

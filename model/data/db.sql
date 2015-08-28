@@ -49,10 +49,6 @@ CREATE TABLE IF NOT EXISTS entregas(
 	usuario_id integer REFERENCES usuarios
 );
 
-INSERT INTO materias (nombre) 
-	VALUES ('Procesos Agiles');
-INSERT INTO tareas (nombre, descripcion, materia_id, estado) 
-	VALUES ('procesos agiles', 'sprint 1', 1, false);
 INSERT INTO tipos_usuario (tipo) 
 	VALUES ('Estudiante');
 INSERT INTO tipos_usuario (tipo) 
@@ -61,3 +57,7 @@ INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario)
 	VALUES ('Patito', 'Patito', 1);
 INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) 
 	VALUES ('Profesor', 'Profesor', 2);
+INSERT INTO materias (nombre) 
+	VALUES ('Procesos Agiles');
+INSERT INTO tareas (nombre, descripcion, materia_id, profesor_id, estado) 
+	VALUES ('procesos agiles', 'sprint 1', 1, 2, false);

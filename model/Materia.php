@@ -3,19 +3,26 @@
 require_once 'data/Connection.php';
 require_once 'ObjetoPersistente.php';
 require_once 'Estudiante.php';
+require_once 'Profesor.php';
 
 class Materia extends ObjetoPersistente{
 	
 	use accesoAPropiedades;
 	
 	private $nombre;
+	private $codigo;
+	private $descripcion;
+	private $profesor_id;
 
 	function __construct($id = -1){
 		parent::__construct($id);
 	}
 	
 	protected function initialize_from($aRow){
-		$this->nombre = $aRow['nombre'];
+		$this->nombre      = $aRow['nombre'];
+		$this->codigo      = $aRow['codigo'];
+		$this->descripcion = $aRow['descripcion'];
+		$this->profesor_id = $aRow['profesor_id'];
 	}
 	
 	public static function all(){
@@ -49,15 +56,50 @@ class Materia extends ObjetoPersistente{
 	}
 	
 	protected function validar(){
-		//implementar
-		return true;
+		
+		$valido = true;
+		
+		$connection 	= Connection::getInstance();
+        $consultaNombre = "SELECT * FROM materias WHERE nombre = '$this->nombre' AND id <> '$this->id'";
+        $resultado 		= $connection->query($consultaNombre);
+        $registros 		= pg_num_rows($resultado);
+        
+        if($registros > 0)
+        	$valido = false;
+        	
+		return $valido;
+	}
+	
+	public function setNombre($nombre){
+		$this->nombre = $nombre;
+	}
+	
+	public function setCodigo($codigo){
+		$this->codigo = $codigo;
+	}
+	
+	public function setDescripcion($descripcion){
+		$this->descripcion = $descripcion;
+	}
+	
+	public function setProfesor($profesor_id){
+		$this->profesor_id = $profesor_id;
 	}
 	
 	public function getNombre(){
 		return $this->nombre;
 	}
-	public function setNombre($nombre){
-		$this->nombre = $nombre;
+	
+	public function getCodigo(){
+		return $this->codigo;
+	}
+	
+	public function getDescripcion(){
+		return $this->descripcion;
+	}
+	
+	public function getProfesor(){
+		return new Profesor($this->profesor_id);
 	}
 	
 	public function getTable(){

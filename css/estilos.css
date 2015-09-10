@@ -15,3 +15,6 @@
         display: block;
         color: #f8f8f5;
 }
+.input-group-addon{
+    width: 170px;
+}

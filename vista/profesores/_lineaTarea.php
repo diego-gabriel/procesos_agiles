@@ -1,5 +1,5 @@
 <tr> 
-<td> <?=$tarea->getNombre()?></td> 
+<td> <a href = "tarea.php?id=<?=$tarea->getId()?>"> <?=$tarea->getNombre()?> </a></td> 
 <td> <?=$tarea->getFechaInicio()?> </td> 
 <td> <?=$tarea->getFechaEntrega()?> </td>
 <td> <?=$tarea->getMateria()->getNombre()?> </td>

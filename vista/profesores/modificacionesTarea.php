@@ -38,12 +38,33 @@ if (isset($_SESSION['usuario_id'])){
         <script src="../../dist/jquery-datepicker.js"></script>
         <script src="jquery.ui.datepicker-es.js"></script>
         <script type="text/javascript" src="../../js/validacionFechas.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/reloj.js"></script>
+        <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
         
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-brand color1" href="../profesores/vistaPrincipal.php">Inicio</a>
+	<nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#acolapsar">
+                      <span class="sr-only">Toggle Navigation</span>  
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">MENU</a>
+                    
+                </div>
+                <div class="collapse navbar-collapse" id="acolapsar" >
+                        <ul class="nav navbar-nav" <ul style="float:right;">>
+                        <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
+                            <li><a href="vistaPrincipal.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
+                             <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
+                              
+                        </ul>
+                    </div>
+                
             </div>
         </nav>
         <br><br><br>

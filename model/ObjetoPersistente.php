@@ -9,7 +9,7 @@ abstract class ObjetoPersistente{
 	protected $id;
 	
 	public function __construct($id = -1){
-		if ($id < 0){
+		if ($id < -1){
 			$this->id = $id;
 		} else {
 			$connection = Connection::getInstance();

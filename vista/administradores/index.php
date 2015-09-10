@@ -10,28 +10,18 @@ if (isset($_SESSION['usuario_id'])){
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
-           <!-- <body background="../../imagenes/fondo3.jpg" bgcolor="FFCECB"> --> 
+    <title>Pagina Administrador</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/estilos.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/reloj.js"></script>
+    <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 
-        <body style="background:#F0F8FF">
-        <meta charset="UTF-8">
-        
-        <title>Pagina Profesor</title>
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	     <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
-	     <link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
-	     <link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
-         <link rel="stylesheet" href="../../css/bootstrap.css">
-         <link rel="stylesheet" href="../../css/datepicker.css">
-         <link rel="stylesheet" href="../../css/estilos.css">
-         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-         <script type="text/javascript" src="/js/reloj.js"></script>
-         <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
-	
-         
     </head>
-    <body >
+   <body style="background:#F0F8FF">
         <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -42,23 +32,39 @@ if (isset($_SESSION['usuario_id'])){
                       <span class="icon-bar"></span>
                     </button>
                     <a href="#" class="navbar-brand">MENU</a>
+                    
                 </div>
                 <div class="collapse navbar-collapse" id="acolapsar" >
-                        <ul class="nav navbar-nav" <ul style="float:right;">>
+                        <<ul class="nav navbar-nav" <ul style="float:right;">>
                         <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
-                            <li><a href="vistaPrincipal.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
+                            <li><a href="../administradores/index.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
                              <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
                               
                         </ul>
-             </div>
+                    </div>
+                
+            </div>
         </nav>
         <br><br>
-      <div class="container">
-          <br><center> 
-  			 <h1 id="titulo"><b>MENU PRINCIPAL PROFESOR</b></h1>
+        
+        
+       
+        
+       <div class="container">
+        	
+        	<br>
+            <font >
+                <center>
+                    
+  			 <h1 id="titulo"><b>MENU PRINCIPAL ADMINISTRADOR</b></h1>
   			 <p><b>Bienvenido: </b><i><?=$estudiante->getNombreUsuario()?></i></p>
-  			</center></br>
-  			</div>
+  			 
+  			 
+  			 </center>
+			</font>
+            </br>
+            
+            </div>
             <style type="text/css">
                 
                  #absoluto {
@@ -82,7 +88,7 @@ if (isset($_SESSION['usuario_id'])){
                0 5px 10px rgba(0,0,0,.25),
                0 10px 10px rgba(0,0,0,.2),
                0 20px 20px rgba(0,0,0,.15);
-              color:blue;
+              color:#7a231b;
               text-align: center;
 }
         
@@ -91,26 +97,15 @@ if (isset($_SESSION['usuario_id'])){
             </style>
             
             <div class="content" align="left" style="padding: 50px 100px">
-                
-                    
-                     
-                    <a href="../tareas/nueva.php"><button class="btn btn-info glyphicon glyphicon-open">  Crear Tarea</button></a> <br><br><br><br>
-                      
-                    <a href="tareasProfesor.php"><button class="btn btn-info glyphicon glyphicon-file"> Ver tareas   </button></a> <br> <br><br><br>
-                  
-                    <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
+                  <a href="registroMateria.php"><button class="btn btn-info glyphicon glyphicon-open"> Registrar Materias</button></a> <br><br><br><br>
+                  <a href="crearUsuario.php"><button class="btn btn-info glyphicon glyphicon-plus"> Crear cuenta </button></a><br><br><br><br>
+                  <a href="verUsuarios.php"><button class="btn btn-info glyphicon glyphicon-user"> Ver Usuarios</button></a><br><br><br><br>
+                  <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
                    
                   <div id="absoluto"> <img  class="img-responsive" alt="Imagen responsive" src="../../imagenes/calendario.png" width="500" height="500">  </div>
                    
                      
             </div>
            
-            
-        
-        
-            
-                
-        	
-    
     </body>
 </html>

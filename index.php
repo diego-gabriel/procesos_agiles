@@ -5,7 +5,7 @@
 	<body style="background:#F0F8FF">
 	<meta charset="utf-8">
 	
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Calendario de Tareas</title>
@@ -20,11 +20,35 @@
 </head>
 
 <body>
-    
+    <style type="text/css">
+                
+                
+                 #titulo {
+              font-weight: bold;
+              font-size: 32px;
+              font-family: "courier";
+              text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+              color:blue;
+              text-align: center;
+              
+                
+}
+    </style>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <h3><IMG SRC="imagenes/umss.png"><font color='white'> <strong>UNIVERSIDAD MAYOR DE SAN SIMON &nbsp;&nbsp;&nbsp;</strong></h3>
+                <h3><IMG SRC="imagenes/umss.png" ><font color='white'> <strong>UNIVERSIDAD MAYOR DE SAN SIMON &nbsp;&nbsp;&nbsp;</strong></h3>
             </div>
         </nav>
         <br><br><br><br><br><br>
@@ -34,12 +58,14 @@
                     <div class="content">
                         <div class="content_resize">
                             <div class="mainbar" style="color: black">
-                                <h1>Bienvenido al Calendario de Tareas</h1>
-                                <img  src="imagenes/agiles.jpg" alt="portadaInicio" class="img-thumbnail" width="700" height="700">
+                                <h1 id="titulo">Bienvenido al Calendario de Tareas</h1>
+                                <center><img src="imagenes/agiles.jpg" alt="portadaInicio" class="img-thumbnail" width="700" height="700"></center>
                             </div>
                             <form method="post" action="/controlador/ingreso.php">
                                 <div class="sidebar">
-                                    <h2>Ingresar al Sistema</h2>
+                                   <font FACE="courier">
+                                    <center><h2><b>Ingresar al Sistema</b></h2></center>
+                                    </font>
                                     <br>   
                                     <div class="form-group" style="padding: 5px 20px">
                                         <div class="input-group">

@@ -1,5 +1,6 @@
 <?php
 require_once 'Usuario.php';
+require_once 'Estudiante.php';
 require_once 'Materia.php';
 require_once 'Tarea.php';
 require_once 'Entrega.php';
@@ -15,8 +16,7 @@ class Profesor extends Usuario{
 		$result 	= $connection->query("SELECT id FROM usuarios 
 										  WHERE tipo_usuario = ".Usuario::PROFESOR);
 		$res 		= array();
-		
-		while ($id = pg_fetch_array($result)[0]){
+		while (($id = pg_fetch_array($result)[0]) != null){
 			$res[] = new Profesor($id);
 		}
 		
@@ -35,6 +35,10 @@ class Profesor extends Usuario{
 		}
 		
 		return $res;
+	}
+	//Devuelve una lista de todos los estudiantes inscritos a $materia
+	public function estudiantes($materia){
+		return Estudiante::all();
 	}
 }
 

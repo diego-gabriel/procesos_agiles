@@ -3,6 +3,7 @@ require_once 'data/Connection.php';
 require_once 'ObjetoPersistente.php';
 require_once 'Estudiante.php';
 require_once 'Tarea.php';
+require_once 'Comentario.php';
 
 class Entrega extends ObjetoPersistente{
 	use accesoAPropiedades;
@@ -19,6 +20,21 @@ class Entrega extends ObjetoPersistente{
 		$this->archivo 	  = $aRow['archivo'];
 		$this->usuario_id = $aRow['usuario_id'];
 		$this->tarea_id   = $aRow['tarea_id'];
+	}
+	
+	public function comentarios(){
+		$conexion	= Connection::getInstance();
+		$resultado 	= $conexion->query("SELECT id 
+										FROM comentarios 
+										WHERE entrega_id = $this->id");
+		
+		$res = array();
+		
+		while($id = pg_fetch_array($resultado)[0]){
+			$res[] = new Comentario($id);
+		}
+		
+		return $res;
 	}
 	
 	public function setArchivo($archivo){

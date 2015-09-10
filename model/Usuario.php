@@ -25,17 +25,18 @@ abstract class Usuario extends ObjetoPersistente{
 	
 	public static function autenticar($usuario, $contrasena){
 		$conexion 	= Connection::getInstance();
-		$resultado 	= $conexion->query("SELECT * FROM usuarios 
+		$resultado 	= $conexion->query("SELECT id, tipo_usuario FROM usuarios 
 										WHERE nombre_usuario = '$usuario' 
 										AND contrasena = '$contrasena'");
-		$usuario = null;
+		$array = null;
 			
 		if (pg_num_rows($resultado) >= 1){
-			while($id = pg_fetch_array($resultado)[0])
-				$usuario = $id;
+			while($attr = pg_fetch_object($resultado)){
+				$array = $attr;
+			}
 		}
 		
-		return $usuario;
+		return $array;
 	}
 	
 	public function getNombreUsuario(){
@@ -77,7 +78,7 @@ abstract class Usuario extends ObjetoPersistente{
 		$this->telefono = $telefono;
 	}
 	public function getCorreo(){
-		return $this->Correo;
+		return $this->correo;
 	}
 	public function setCorreo($correo){
 		$this->correo = $correo;
@@ -95,6 +96,11 @@ abstract class Usuario extends ObjetoPersistente{
 		
 	}
 	
+	//devuelve el nombre completo del usuario
+	public function nombreCompleto(){
+		return $this->apellido." ".$this->nombre;
+	}
+	
 	protected function validar(){
 		//implementar
 		return true;
@@ -103,6 +109,7 @@ abstract class Usuario extends ObjetoPersistente{
 	public function getTable(){
 		return "usuarios";
 	}
+	
 }
 
 ?>

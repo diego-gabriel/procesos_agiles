@@ -85,7 +85,7 @@ INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, co
 	VALUES ('Patito', 'Patito','Pato','Patito', 71752522, 'pato@gmail.com', 1);
 INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
 	VALUES ('Profesor', 'Profesor', 'Juan','Perez', 4569286, 'profesor@gmail.com', 2);
-INSERT INTO materias (nombre, codigo, profesor_id) 
-	VALUES ('Procesos Agiles', 'Agiles', 3);
+INSERT INTO materias (nombre, codigo, descripcion, profesor_id) 
+	VALUES ('Procesos Agiles', 'Agiles', 'Scrum, XP', 3);
 INSERT INTO tareas (nombre, descripcion, materia_id, profesor_id, estado) 
 	VALUES ('procesos agiles', 'sprint 1', 1, 3, false);

@@ -65,6 +65,7 @@
                         
                         $ver_entrega = true;
                         foreach($estudiante->tareas() as $tarea){
+                            if ($tarea->getEstado == Tarea::VISIBLE)
                                 require "../vista/tareas/_lineaTarea.php";
                         }
                     ?> 

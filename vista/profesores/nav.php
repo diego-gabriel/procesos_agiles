@@ -10,14 +10,14 @@
 	     <link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
          <link rel="stylesheet" href="../../css/bootstrap.css">
          <link rel="stylesheet" href="../../css/datepicker.css">
-         <link rel="stylesheet" href="../../css/estilos.css">
+         
          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
          <script type="text/javascript" src="/js/reloj.js"></script>
          <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
          <link rel="stylesheet" href="../../css/jquery1-10.css" />
-	   <script src="../../dist/jquery-datepicker.js"></script>
+	    <script src="../../dist/jquery-datepicker.js"></script>
     	<script src="jquery.ui.datepicker-es.js"></script>
-	<script type="text/javascript" src="../../js/validacionFechas.js"></script>
+	    <script type="text/javascript" src="../../js/validacionFechas.js"></script>
 	
          
     </head>

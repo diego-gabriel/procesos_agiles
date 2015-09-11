@@ -22,10 +22,11 @@
 			$entrega->setArchivo($archivo);
 			$entrega->guardar();
 			
-			$notificacion = new Notifiacion();
+			$notificacion = new Notificacion();
 			$notificacion->setUsuario($tarea->getProfesor());
 			$notificacion->setMensaje($estudiante->nombreCompleto()." ha entregado la tarea: ".$tarea->getNombre());
 			$notificacion->setEnlace("/vista/profesores/entrega.php?t_id=".$tarea->getId()."&e_id=".$estudiante->getId());
+			$notificacion->guardar();
 		} else {
 			$entrega = null;
 		}

@@ -13,13 +13,20 @@
 	
 	$_SESSION['ultimo_sitio'] = $_SERVER['REQUEST_URI'];
 ?>
+<?require 'nav.php'?>
+<br><br><br>
+<div class="container">
+<table class="table table-striped table-hover table-bordered table-condensed">
+	<tr class="info"> 
+		<th><h2><b>Entrega de la tarea:</b> <?=$tarea->getNombre()?></h2></th>
+	</tr>
+		<td><h4><b>Estudiante : </b> <?=$estudiante->nombreCompleto()?></h4>
+		<h4><b>Detalles de la tarea : </b> <? require "_tarea.php" ?></h4>
 
-<h1>Entrega de la tarea: <?=$tarea->getNombre()?></h1>
-<h2>Estudiante: <?=$estudiante->nombreCompleto()?></h2>
-<h3>Detalled de la tarea:</h3>
+<a target='_blank' href="<?=$entrega->getArchivo()?>">Descargar tarea entregada</a></td>
 
-<? require "_tarea.php" ?>
-
-<a target='_blank' href="<?=$entrega->getArchivo()?>">Descargar tarea entregada</a>
+</table>
+</div>
 <br>
 <? require "_comentarios.php" ?>
+

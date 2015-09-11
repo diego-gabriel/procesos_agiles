@@ -9,49 +9,11 @@ if (isset($_SESSION['usuario_id'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
-           <!-- <body background="../../imagenes/fondo3.jpg" bgcolor="FFCECB"> --> 
-
-        <body style="background:#F0F8FF">
-        <meta charset="UTF-8">
-        
-        <title>Pagina Profesor</title>
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	     <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
-	     <link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
-	     <link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
-         <link rel="stylesheet" href="../../css/bootstrap.css">
-         <link rel="stylesheet" href="../../css/datepicker.css">
-         <link rel="stylesheet" href="../../css/estilos.css">
-         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-         <script type="text/javascript" src="/js/reloj.js"></script>
-         <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
-	
-         
-    </head>
+ 
+ <title>MENU PROFESOR</title>
+ 
     <body >
-        <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#acolapsar">
-                      <span class="sr-only">Toggle Navigation</span>  
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a href="#" class="navbar-brand">MENU</a>
-                </div>
-                <div class="collapse navbar-collapse" id="acolapsar" >
-                        <ul class="nav navbar-nav" <ul style="float:right;">>
-                        <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
-                            <li><a href="vistaPrincipal.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
-                             <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
-                              
-                        </ul>
-             </div>
-        </nav>
+       <?require 'nav.php'?>
         <br><br>
       <div class="container">
           <br><center> 
@@ -99,6 +61,8 @@ if (isset($_SESSION['usuario_id'])){
                     <a href="tareasProfesor.php"><button class="btn btn-info glyphicon glyphicon-file"> Ver tareas   </button></a> <br> <br><br><br>
                   
                     <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
+                   
+                    <? require "../../notificaciones/_notificaciones.php" ?>
                    
                   <div id="absoluto"> <img  class="img-responsive" alt="Imagen responsive" src="../../imagenes/calendario.png" width="500" height="500">  </div>
                    

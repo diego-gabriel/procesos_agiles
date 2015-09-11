@@ -1,5 +1,11 @@
 <?php
-    session_start();
+session_start();
+require_once "../model/Estudiante.php";
+if (isset($_SESSION['usuario_id'])){
+    $estudiante = new Estudiante($_SESSION['usuario_id']);
+} else {
+    header("Location: /index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,11 +70,11 @@
                 
                 <?php
                 $materiasHabilitadas = false;
-                foreach($estudiante->materiasHabilitadas() as $materia){ 
+                foreach($estudiante->materiasHabilitadas() as $materia){
                     $materiasHabilitadas = true;
                 ?>
                    	<tr>
-                       	<td> <input type="checkbox" name="materia[]" id = 'materias' value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></td>
+                       	<td> <input type="checkbox" name="materia[]" id = 'materia' value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></td>
                    	</tr>
                 <?php
                 } 

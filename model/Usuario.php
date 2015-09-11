@@ -2,6 +2,7 @@
 
 require_once 'data/Connection.php';
 require_once 'ObjetoPersistente.php';
+require_once 'Notificacion.php';
 
 abstract class Usuario extends ObjetoPersistente{
 	use accesoAPropiedades;
@@ -99,6 +100,24 @@ abstract class Usuario extends ObjetoPersistente{
 	//devuelve el nombre completo del usuario
 	public function nombreCompleto(){
 		return $this->apellido." ".$this->nombre;
+	}
+	
+	//devuelve las notificaciones del estudiante
+	public function notificaciones(){
+		
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT notificaciones.id 
+										  FROM usuarios, notificaciones   
+										  WHERE   
+										  notificaciones.usuario_id = usuarios.id AND
+										  usuarios.id = $this->id");
+		$res 		= array();
+		
+		while ($id = pg_fetch_array($result)[0]){
+			$res[] = new Notificacion($id);
+		}
+		
+		return $res;
 	}
 	
 	protected function validar(){

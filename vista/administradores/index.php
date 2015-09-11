@@ -1,11 +1,11 @@
 <?php
-session_start();
-require_once "../../model/Profesor.php";
-if (isset($_SESSION['usuario_id'])){
-    $estudiante = new Profesor($_SESSION['usuario_id']);
-} else {
-    header("Location: /index.php");
-}
+    session_start();
+    require_once "../../model/Administrador.php";
+    if (isset($_SESSION['usuario_id'])){
+        $administrador = new Administrador($_SESSION['usuario_id']);
+    } else {
+        header("Location: /index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +57,7 @@ if (isset($_SESSION['usuario_id'])){
                 <center>
                     
   			 <h1 id="titulo"><b>MENU PRINCIPAL ADMINISTRADOR</b></h1>
-  			 <p><b>Bienvenido: </b><i><?=$estudiante->getNombreUsuario()?></i></p>
+  			 <p><b>Bienvenido: </b><i><?=$administrador->getNombreUsuario()?></i></p>
   			 
   			 
   			 </center>
@@ -97,10 +97,10 @@ if (isset($_SESSION['usuario_id'])){
             </style>
             
             <div class="content" align="left" style="padding: 50px 100px">
-                  <a href="registroMateria.php"><button class="btn btn-info glyphicon glyphicon-open"> Registrar Materias</button></a> <br><br><br><br>
-                  <a href="crearUsuario.php"><button class="btn btn-info glyphicon glyphicon-plus"> Crear cuenta </button></a><br><br><br><br>
-                  <a href="verUsuarios.php"><button class="btn btn-info glyphicon glyphicon-user"> Ver Usuarios</button></a><br><br><br><br>
-                  <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
+                  <a href="registroMateria.php"><button class="btn btn-info glyphicon glyphicon-open"> Registrar Materia</button></a> <br><br><br><br>
+                  <a href="listaMaterias.php"><button class="btn btn-info glyphicon glyphicon-user"> Lista de Materias</button></a> <br><br><br><br>
+                  <a href="crearUsuario.php"><button class="btn btn-info glyphicon glyphicon-plus"> Registrar a un Profesor </button></a><br><br><br><br>
+                  <a href="verUsuarios.php"><button class="btn btn-info glyphicon glyphicon-user"> Lista de Profesores</button></a><br><br><br><br>
                    
                   <div id="absoluto"> <img  class="img-responsive" alt="Imagen responsive" src="../../imagenes/calendario.png" width="500" height="500">  </div>
                    

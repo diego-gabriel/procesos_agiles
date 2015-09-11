@@ -1,10 +1,19 @@
-
+<?php
+    session_start();
+    require_once "../../model/Administrador.php";
+    if (isset($_SESSION['usuario_id'])){
+        $administrador = new Administrador($_SESSION['usuario_id']);
+    } else {
+        header("Location: /index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
     	<meta charset="UTF-8">
         <title>Lista de Materias</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="../../agiles2.png" type="image/png" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link rel="stylesheet" href="../../css/bootstrap.css">
 		<link rel="stylesheet" href="../../css/estilos.css">
@@ -57,7 +66,7 @@
 		            ?> 
 	            </table>
             </div>
-            <a href="../tareas/nueva.php"><button class="btn btn-primary glyphicon glyphicon-plus"> Registrar Nueva Tarea</button></a>
+            <a href="registroMateria.php"><button class="btn btn-primary glyphicon glyphicon-plus"> Registrar Nueva Materia</button></a>
         </div>
     </body>
 </html>

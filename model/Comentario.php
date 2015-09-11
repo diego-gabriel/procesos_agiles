@@ -18,14 +18,15 @@ class Comentario extends ObjetoPersistente{
 	
 	function __construct($id = -1){
 		parent::__construct($id);
-		$this->creado_en = Timestamp::ahora();
+		if ($this->id == -1)
+			$this->creado_en = Timestamp::ahora();
 	}
 	protected function initialize_from($aRow){
-		$this->comentario = $aRow['comentario'];
-		$this->entrega_id = $aRow['entrega_id'];
-		$this->comentador  = $aRow['comentador'];
+		$this->comentario 		= $aRow['comentario'];
+		$this->entrega_id 		= $aRow['entrega_id'];
+		$this->comentador  		= $aRow['comentador'];
 		$this->tipo_comentador  = $aRow['tipo_comentador'];
-		$this->creado_en  = new Timestamp($aRow['creado_en']);
+		$this->creado_en  		= new Timestamp($aRow['creado_en']);
 	}
 	
 	public function setComentario($comentario){
@@ -40,7 +41,7 @@ class Comentario extends ObjetoPersistente{
 		}
 	}
 	public function setComentador($comentador){
-		if ($entrega instanceof Usuario){
+		if ($comentador instanceof Usuario){
 			$this->comentador = $comentador->getId();
 			$this->tipo_comentador = $comentador->getTipoUsuario();
 		} else {

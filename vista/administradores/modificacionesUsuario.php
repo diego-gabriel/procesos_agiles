@@ -1,14 +1,14 @@
 <?php
-//session_start();
-//require_once "../../model/Administrador.php";
-require_once "../../model/Profesor.php";
-//if (isset($_SESSION['usuario_id'])){
-//    $profesor = new Administrador($_SESSION['usuario_id']);
-    if (isset($_GET['id']))
-    	$profesor = new Profesor($_GET['id']);
-//} else {
-//    header("Location: /index.php");
-//}
+	session_start();
+	require_once "../../model/Administrador.php";
+	require_once "../../model/Profesor.php";
+	if (isset($_SESSION['usuario_id'])){
+	    $administrador = new Administrador($_SESSION['usuario_id']);
+	    if (isset($_GET['id']))
+	    	$profesor = new Profesor($_GET['id']);
+	} else {
+	    header("Location: /index.php");
+	}
 ?>
 <html>
 	<head>
@@ -37,7 +37,7 @@ require_once "../../model/Profesor.php";
 	                <div class="collapse navbar-collapse" id="acolapsar" >
 	                        <ul class="nav navbar-nav" <ul style="float:right;">>
 	                        <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
-	                            <li><a href="vistaPrincipal.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
+	                            <li><a href="index.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
 	                             <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
 	                              
 	                        </ul>

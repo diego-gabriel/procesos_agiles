@@ -11,23 +11,36 @@
 	$tarea = new Tarea($_GET['id']);
 	$materia = $tarea->getMateria();
 ?>
+<title>ENTREGAS</title>
+<?require 'nav.php'?>
 
-<h1>Tarea: <?=$tarea->getNombre()?></h1>
-<?require '_tarea.php'?>
-<h3>Entregas:</h3>
-<table>
+        <br><br><br><br>
+
+<div class="container">
+<table class="table table-striped table-hover table-bordered table-condensed">
+		<tr class="info">
+			<th><h1>Tarea: <?=$tarea->getNombre()?></h1></th>
+		</tr>
+		<tr>
+			<td><?require '_tarea.php'?></td>
+		</tr>
+</table>
+	<center><h2>Entregas</h2></center>
+<table class="table table-striped table-hover table-bordered table-condensed">
 	<?php
 		$id = 1;
 	?>
-	<tr>
-		<th></th>
+	<tr class="info">
+		<th>nro</th>
 		<th>Estudiante</th>
 		<th>Estado</th>
-		<th></th>
+		<th>Entrega</th>
 	</tr>
+	
 	<?php
 		foreach($profesor->estudiantes($materia) as $estudiante){
 			require "_entregasTarea.php";
 		}
 	?>
 </table>
+</div>

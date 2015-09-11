@@ -63,17 +63,29 @@ CREATE TABLE IF NOT EXISTS comentarios(
 	entrega_id integer REFERENCES entregas
 );
 
+DROP TABLE IF EXISTS notificaciones CASCADE;
+CREATE TABLE IF NOT EXISTS notificaciones(
+	id serial NOT NULL PRIMARY KEY,
+	usuario_id integer REFERENCES usuarios,
+	enlace varchar(200) NOT NULL DEFAULT '/',
+	mensaje varchar(200) NOT NULL DEFAULT ''
+);
+
 INSERT INTO tipos_usuario (tipo) 
 	VALUES ('Estudiante');
 INSERT INTO tipos_usuario (tipo) 
 	VALUES ('Profesor');
-INSERT INTO usuarios (id,nombre_usuario,nombre,apellido, tipo_usuario) 
+INSERT INTO tipos_usuario (tipo) 
+	VALUES ('Administrador');
+INSERT INTO usuarios (id, nombre_usuario, nombre, apellido, tipo_usuario) 
 	VALUES (0,'Por Designar','Por Designar', '', 2);
-INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, tipo_usuario) 
-	VALUES ('Patito', 'Patito','Pato','Patito', 1);
-INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, tipo_usuario) 
-	VALUES ('Profesor', 'Profesor', 'Juan','Perez', 2);
+INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
+	VALUES ('Administrador','Administrador', 'Administrador', 'Administrador', 4217896, 'administrador@gmail.com', 3);
+INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
+	VALUES ('Patito', 'Patito','Pato','Patito', 71752522, 'pato@gmail.com', 1);
+INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
+	VALUES ('Profesor', 'Profesor', 'Juan','Perez', 4569286, 'profesor@gmail.com', 2);
 INSERT INTO materias (nombre, codigo, profesor_id) 
-	VALUES ('Procesos Agiles', 'Agiles', 2);
+	VALUES ('Procesos Agiles', 'Agiles', 3);
 INSERT INTO tareas (nombre, descripcion, materia_id, profesor_id, estado) 
-	VALUES ('procesos agiles', 'sprint 1', 1, 2, false);
+	VALUES ('procesos agiles', 'sprint 1', 1, 3, false);

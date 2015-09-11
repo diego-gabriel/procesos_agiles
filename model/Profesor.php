@@ -36,6 +36,20 @@ class Profesor extends Usuario{
 		
 		return $res;
 	}
+	
+	public function mostrarMaterias(){
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT id 
+										  FROM   materias  
+										  WHERE  profesor_id = $this->id");
+		$res 		= array();
+		
+		while ($id = pg_fetch_array($result)[0]){
+			$res[] = new Materia($id);
+		}
+		
+		return $res;
+	}
 	//Devuelve una lista de todos los estudiantes inscritos a $materia
 	public function estudiantes($materia){
 		return Estudiante::all();

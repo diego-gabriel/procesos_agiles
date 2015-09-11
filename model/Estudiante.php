@@ -62,6 +62,7 @@ class Estudiante extends Usuario{
 		return $res;
 	}
 	
+	
 	//devuelve todas las tareas del estudiante
 	public function tareas(){
 		
@@ -81,6 +82,7 @@ class Estudiante extends Usuario{
 		
 		return $res;
 	}
+	
 	
 	//devuelve una Entrega si la tarea fue entregada, sino devuelve NULL
 	public function entrega($tarea){
@@ -103,6 +105,7 @@ class Estudiante extends Usuario{
 		}							   
 		return $entrega;
 	}
+	
 	
 	//devuelve el archivo entregado para una tarea
 	public function archivoDe($tarea){

@@ -60,7 +60,8 @@ if (isset($_SESSION['usuario_id'])){
             <a href="tareas.php"><button class="btn btn-primary glyphicon glyphicon-file ">     Ver Tareas      </button></a>
             <a href="../../index.php"><button class="btn btn-primary glyphicon glyphicon-remove-circle"> Cerrar sesion </button></a>
         	<br><br><br>
-        	
+        	   
+            <? require "../notificaciones/_notificaciones.php" ?>
 
         	<img  src="../../imagenes/agiles.jpg" alt="portadaInicio" class="img-thumbnail" width="700" height="700">
         </div>

@@ -49,6 +49,9 @@ class Entrega extends ObjetoPersistente{
 	public function getArchivo(){
 		return $this->archivo;
 	}
+	public function getUsuarioId(){
+		return $this->usuario_id;
+	}
 	public function getUsuario(){
 		return new Estudiante($this->usuario_id);
 	}

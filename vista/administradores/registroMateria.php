@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    require_once "../../model/Administrador.php";
+    if (isset($_SESSION['usuario_id'])){
+        $administrador = new Administrador($_SESSION['usuario_id']);
+    } else {
+        header("Location: /index.php");
+    }
+?>
 <html>
     <head>
     	<title>Registro de Materia</title>

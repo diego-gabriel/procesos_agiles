@@ -4,7 +4,7 @@ require_once 'Usuario.php';
 
 class Administrador extends Usuario{
 	public function __construct($id = -1){
-		parent::__construct(Usuario::Administrador, $id);
+		parent::__construct(Usuario::ADMINISTRADOR, $id);
 	}
 	
 	public static function all(){

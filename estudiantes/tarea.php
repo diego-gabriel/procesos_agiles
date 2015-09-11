@@ -3,6 +3,7 @@
 	require_once "../model/Estudiante.php";
 	require_once "../model/Tarea.php";
 	require_once "../model/Entrega.php";
+	require_once "../model/Notificacion.php";
 	require_once "../controlador/validacionDeAcceso.php";
 	
 	$estudiante = new Estudiante($_SESSION['usuario_id']);
@@ -20,6 +21,11 @@
 			$entrega->setTareaId($tarea->getId());
 			$entrega->setArchivo($archivo);
 			$entrega->guardar();
+			
+			$notificacion = new Notifiacion();
+			$notificacion->setUsuario($tarea->getProfesor());
+			$notificacion->setMensaje($estudiante->nombreCompleto()." ha entregado la tarea: ".$tarea->getNombre());
+			$notificacion->setEnlace("/vista/profesores/entrega.php?t_id=".$tarea->getId()."&e_id=".$estudiante->getId());
 		} else {
 			$entrega = null;
 		}

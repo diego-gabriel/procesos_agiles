@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS comentarios CASCADE;
 CREATE TABLE IF NOT EXISTS comentarios(
 	id serial NOT NULL PRIMARY KEY,
 	comentario varchar(1000) NOT NULL DEFAULT '(sin comentario)',
-	comentador integer REFERENCES usuarios,
+	comentador integer REFERENCES usuarios ON DELETE CASCADE,
 	creado_en  timestamp WITH TIME ZONE NOT NULL DEFAULT NOW(),
 	tipo_comentador integer REFERENCES tipos_usuario,
 	entrega_id integer REFERENCES entregas
@@ -66,9 +66,10 @@ CREATE TABLE IF NOT EXISTS comentarios(
 DROP TABLE IF EXISTS notificaciones CASCADE;
 CREATE TABLE IF NOT EXISTS notificaciones(
 	id serial NOT NULL PRIMARY KEY,
-	usuario_id integer REFERENCES usuarios,
+	usuario_id integer REFERENCES usuarios ON DELETE CASCADE,
 	enlace varchar(200) NOT NULL DEFAULT '/',
-	mensaje varchar(200) NOT NULL DEFAULT ''
+	mensaje varchar(200) NOT NULL DEFAULT '',
+	visible boolean NOT NULL DEFAULT 'true'
 );
 
 INSERT INTO tipos_usuario (tipo) 
@@ -88,4 +89,4 @@ INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, co
 INSERT INTO materias (nombre, codigo, descripcion, profesor_id) 
 	VALUES ('Procesos Agiles', 'Agiles', 'Scrum, XP', 3);
 INSERT INTO tareas (nombre, descripcion, materia_id, profesor_id, estado) 
-	VALUES ('procesos agiles', 'sprint 1', 1, 3, false);
+	VALUES ('procesos agiles', 'sprint 1', 1, 3, true);

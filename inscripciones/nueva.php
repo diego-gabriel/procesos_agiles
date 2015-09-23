@@ -35,15 +35,14 @@ if (isset($_SESSION['usuario_id'])){
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">MENU</a>
+                    <a class="navbar-brand" href="../estudiantes/inicio.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a>
                     
                 </div>
                 <div class="collapse navbar-collapse" id="acolapsar" >
                          <ul class="nav navbar-nav" <ul style="float:right;">>
-                        <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
-                            <li><a href="../estudiantes/inicio.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
+                             <li> <a>Estudiante: <?=$estudiante->nombreCompleto()?><br></a> </li>
+                             <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
                              <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
-                              
                         </ul>
                     </div>
                 

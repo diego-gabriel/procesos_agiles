@@ -110,7 +110,8 @@ abstract class Usuario extends ObjetoPersistente{
 										  FROM usuarios, notificaciones   
 										  WHERE   
 										  notificaciones.usuario_id = usuarios.id AND
-										  usuarios.id = $this->id");
+										  usuarios.id = $this->id AND 
+										  notificaciones.visible = 't'" );
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){

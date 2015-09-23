@@ -2,23 +2,36 @@
 session_start();
 require_once "../../model/Profesor.php";
 if (isset($_SESSION['usuario_id'])){
-    $estudiante = new Profesor($_SESSION['usuario_id']);
+    $profesor = new Profesor($_SESSION['usuario_id']);
+    $usuario = $profesor;
 } else {
     header("Location: /index.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
+	     <link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
+	     <link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
+         <link rel="stylesheet" href="../../css/bootstrap.css">
+         <link rel="stylesheet" href="../../css/datepicker.css">
+         
+         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+         <script type="text/javascript" src="/js/reloj.js"></script>
+         <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="../../css/jquery1-10.css" />
+	    <script src="../../dist/jquery-datepicker.js"></script>
+    	
  
  <title>MENU PROFESOR</title>
  
     <body >
-       <?require 'nav.php'?>
+       <?require 'head.php'?>
         <br><br>
       <div class="container">
           <br><center> 
   			 <h1 id="titulo"><b>MENU PRINCIPAL PROFESOR</b></h1>
-  			 <p><b>Bienvenido: </b><i><?=$estudiante->getNombreUsuario()?></i></p>
+  			 <p><b>Bienvenido: </b><i><?=$profesor->getNombreUsuario()?></i></p>
   			</center></br>
   			</div>
             <style type="text/css">
@@ -62,7 +75,7 @@ if (isset($_SESSION['usuario_id'])){
                   
                     <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
                    
-                    <? require "../../notificaciones/_notificaciones.php" ?>
+                    <? require "../notificaciones/_notificaciones.php" ?>
                    
                   <div id="absoluto"> <img  class="img-responsive" alt="Imagen responsive" src="../../imagenes/calendario.png" width="500" height="500">  </div>
                    

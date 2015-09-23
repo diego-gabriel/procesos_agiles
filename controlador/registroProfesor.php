@@ -35,7 +35,7 @@ require_once '../model/data/Connection.php';
 				$arr = pg_fetch_array($res);
 				//$_SESSION['usuario_id'] = $arr[0]; 
                 $mensaje = 'Registro exitosamente';
-                echo "<script>alert('$mensaje'); window.location='../vista/administradores/index.php';</script>";            
+                echo "<script>alert('$mensaje'); window.location='../vista/administradores/verUsuarios.php';</script>";            
             }
         }
     } 

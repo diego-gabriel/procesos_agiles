@@ -50,9 +50,21 @@ class Profesor extends Usuario{
 		
 		return $res;
 	}
+	public function numeroEstudiantes(){
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT inscripciones.usuario_id 
+										  FROM   inscripciones, materias
+										  WHERE  materias.profesor_id = $this->id AND
+										  inscripciones.materia_id = materias.id");
+		$res 		= pg_num_rows($result);
+		
+		return $res;
+	}
 	//Devuelve una lista de todos los estudiantes inscritos a $materia
 	public function estudiantes($materia){
-		return Estudiante::all();
+		//echo 'implementar metodo Profesor->estudiantes($materia)<br>';
+		
+		return $materia->estudiantes();
 	}
 }
 

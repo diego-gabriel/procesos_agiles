@@ -48,18 +48,15 @@ if (isset($_SESSION['usuario_id'])){
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">MENU</a>
-                    
+                    <a class="navbar-brand" href="../profesores/vistaPrincipal.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a>
                 </div>
                 <div class="collapse navbar-collapse" id="acolapsar" >
-                         <ul class="nav navbar-nav" <ul style="float:right;">>
+                	<ul class="nav navbar-nav" <ul style="float:right;">>
+                		<li> <a>Profesor: <?=$profesor->nombreCompleto()?><br></a> </li>
                         <li> <a> Fecha y hora del servidor: <span id = 'reloj'class="glyphicon glyphicon-time" > </span> <br></a> </li>
-                            <li><a href="../profesores/vistaPrincipal.php"><span class="glyphicon glyphicon-home">  </span> INICIO</a></li>
-                             <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
-                              
-                        </ul>
-                    </div>
-                
+                        <li><a href="../../index.php"><span class="glyphicon glyphicon-remove">  </span> CERRAR SESION</a></li>
+                    </ul>
+               </div>
             </div>
         </nav>
         <br>

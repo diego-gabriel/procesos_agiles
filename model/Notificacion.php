@@ -6,18 +6,32 @@ require_once 'Usuario.php';
 class Notificacion extends ObjetoPersistente{
 	use accesoAPropiedades;
 	
+	static $VISIBLE = "Visible";
+	static $NO_VISIBLE = "No Visible";
+	
 	private $usuario_id;
 	private $enlace;
 	private $mensaje;
+	private $visible;
 	
 	function __construct($id = -1){
 		parent::__construct($id);
+		$this->visible = 't';
+	}
+	
+	public static function desactivarTodas($url){
+		$conexion 	= Connection::getInstance();
+		$conexion->query("UPDATE notificaciones 
+						  SET visible = 'f'  
+						  WHERE 
+						  enlace = '$url'");
 	}
 	
 	protected function initialize_from($aRow){
 		$this->usuario_id = $aRow['usuario_id'];
 		$this->mensaje 	  = $aRow['mensaje'];
 		$this->enlace 	  = $aRow['enlace'];
+		$this->visible 	  = $aRow['visible'];
 	}
 	
 	public function setUsuario($usuario){	
@@ -46,6 +60,10 @@ class Notificacion extends ObjetoPersistente{
 	
 	public function getMensaje(){
 		return $this->mensaje;
+	}
+	
+	public function esVisible(){
+		return $this->visible;
 	}
 	
 	protected function validar(){

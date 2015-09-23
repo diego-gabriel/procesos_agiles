@@ -12,8 +12,15 @@
 	$materia = $tarea->getMateria();
 ?>
 <title>ENTREGAS</title>
-<?require 'nav.php'?>
 
+<?require 'head.php'?>
+<head>
+ 	<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
+	     <link rel="stylesheet" type="text/css" href="../../dist/bootstrap-clockpicker.min.css">
+	     <link rel="stylesheet" type="text/css" href="../../assets/css/github.min.css">
+         <link rel="stylesheet" href="../../css/bootstrap.css">
+         <link rel="stylesheet" href="../../css/datepicker.css">
+ </head>
         <br><br><br><br>
 
 <div class="container">

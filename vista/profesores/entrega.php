@@ -13,7 +13,7 @@
 	
 	$_SESSION['ultimo_sitio'] = $_SERVER['REQUEST_URI'];
 ?>
-<?require 'nav.php'?>
+<?require 'head.php'?>
 <br><br><br>
 <div class="container">
 <table class="table table-striped table-hover table-bordered table-condensed">

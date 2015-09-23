@@ -10,10 +10,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    
+         <link rel="stylesheet" href="../../css/bootstrap.css">
+         <link rel="stylesheet" href="../../css/datepicker.css">
+         
         <title>Tareas Registradas</title>
         <body>
-             <?require 'nav.php'?>
+             <?require 'head.php'?>
         
         <br>
         <div class="container">

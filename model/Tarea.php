@@ -120,7 +120,7 @@ class Tarea extends ObjetoPersistente{
  	
  	public function getEstado(){
  		$resultado = Tarea::VISIBLE;
- 		if($this->estado=="f"){
+ 		if($this->estado=="f" || $this->fecha_inicio > Timestamp::ahora()){
  			$resultado = Tarea::NO_VISIBLE;
  		}
  		return $resultado;

@@ -11,6 +11,7 @@
 	}else{
 		$mensaje = "El codigo de la materia es incorrecto.";
         echo "<script>alert('$mensaje'); window.location='nueva.php';</script>";
+        exit();
 	}
 
 ?>

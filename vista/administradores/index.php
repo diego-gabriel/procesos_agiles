@@ -11,12 +11,12 @@
 <?require'head.php'?>
 <html lang="en">
     <title>Pagina Administrador</title>
-    <br><br>
+    <br>
     <div class="container">
-        <br>
+        
         <font > <center>
              <h1 id="titulo"><b>MENU PRINCIPAL ADMINISTRADOR</b></h1>
-  			 <p><b>Bienvenido: </b><i><?=$administrador->getNombreUsuario()?></i></p>
+  			 
   			 </center>
 	    </font>
 	    </br>

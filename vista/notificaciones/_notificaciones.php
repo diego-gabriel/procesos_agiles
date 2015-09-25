@@ -1,3 +1,6 @@
+
+	
+
 <?php
 	//$estudiantes debe estar definido antes de la llamada a este parcial
 	
@@ -6,3 +9,4 @@
 	}
 	
 ?>
+<br>

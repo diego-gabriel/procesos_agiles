@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	apellido		varchar(50) NOT NULL DEFAULT '(sin apellido)',
 	telefono 		integer	NOT NULL DEFAULT 0,
 	correo			varchar(50) NOT NULL DEFAULT '(sin correo)',
-	tipo_usuario 	integer REFERENCES tipos_usuario
+	tipo_usuario 	integer REFERENCES tipos_usuario,
+	estado boolean NOT NULL DEFAULT 'true'
 );
 
 DROP TABLE IF EXISTS materias CASCADE;
@@ -78,14 +79,14 @@ INSERT INTO tipos_usuario (tipo)
 	VALUES ('Profesor');
 INSERT INTO tipos_usuario (tipo) 
 	VALUES ('Administrador');
-INSERT INTO usuarios (id, nombre_usuario, nombre, apellido, tipo_usuario) 
-	VALUES (0,'Por Designar','Por Designar', '', 2);
-INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
-	VALUES ('Administrador','Administrador', 'Administrador', 'Administrador', 4217896, 'administrador@gmail.com', 3);
-INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
-	VALUES ('Patito', 'Patito','Pato','Patito', 71752522, 'pato@gmail.com', 1);
-INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario) 
-	VALUES ('Profesor', 'Profesor', 'Juan','Perez', 4569286, 'profesor@gmail.com', 2);
+INSERT INTO usuarios (id, nombre_usuario, nombre, apellido, tipo_usuario, estado) 
+	VALUES (0,'Por Designar','Por Designar', '', 2, true);
+INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario, estado) 
+	VALUES ('Administrador','Administrador', 'Administrador', 'Administrador', 4217896, 'administrador@gmail.com', 3, true);
+INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario, estado) 
+	VALUES ('Patito', 'Patito','Pato','Patito', 71752522, 'pato@gmail.com', 1, true);
+INSERT INTO usuarios (nombre_usuario, contrasena, nombre, apellido, telefono, correo, tipo_usuario, estado) 
+	VALUES ('Profesor', 'Profesor', 'Juan','Perez', 4569286, 'profesor@gmail.com', 2, true);
 INSERT INTO materias (nombre, codigo, descripcion, profesor_id) 
 	VALUES ('Procesos Agiles', 'Agiles', 'Scrum, XP', 3);
 INSERT INTO tareas (nombre, descripcion, materia_id, profesor_id, estado) 

@@ -82,6 +82,19 @@ class Estudiante extends Usuario{
 		
 		return $res;
 	}
+
+	public function tareasDelMes(){
+		
+		$res = array();
+		$mesActual = Timestamp::ahora()->getMes();
+		foreach($this->tareas() as $tarea){
+			if ($tarea->getFechaEntrega()->getMes() == $mesActual)
+				$res[] = $tarea;
+		}
+		
+		return $res;
+	}
+
 	
 	
 	//devuelve una Entrega si la tarea fue entregada, sino devuelve NULL

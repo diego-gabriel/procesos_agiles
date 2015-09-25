@@ -75,6 +75,16 @@ class Timestamp{
     public function mayorQue($fecha){
         return strcmp($this->__toString(), $fecha->__toString()) > 0;
     }
+    
+    public function getDia(){
+        return $this->day;
+    }
+    public function getAnho(){
+        return $this->year;
+    }
+    public function getMes(){
+        return $this->month;
+    }
 }
 
 ?>

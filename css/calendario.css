@@ -1,0 +1,63 @@
+#calendario table td{
+	border: solid 3px black;
+}
+
+.disabled-month{
+	background-color: gray;
+}
+.disabled-month:hover{
+	background-color: #555555;
+	color: #eeeeee;
+}
+.day-of-month{
+	height: 80px;
+	width: 80px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.actual-month{
+	background-color: white;
+}
+
+.actual-month:hover{
+	background-color: #dddddd;
+}
+
+.today{
+	background-color: #3366ff;
+}
+.today:hover{
+	background-color: #6699ff;
+}
+
+.linked a{
+	display: block;
+	width: 70px;
+	height: 15px;
+	font-size: 10px;;
+	color: black;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.Entregada{
+	background-color: #99ff66;
+}
+.Entregada:hover{
+	background-color: #66ff33;
+}
+
+.Pendiente{
+	background-color: #ff6600;
+}
+.Pendiente:hover{
+	background-color: #ff9933;
+}
+.Atrasada{
+	background-color: #cc0000;
+}
+.Atrasada:hover{
+	background-color: #ff5050;
+}

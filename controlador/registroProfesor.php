@@ -11,7 +11,7 @@ require_once '../model/data/Connection.php';
     
     $conexion = Connection::getInstance();
   
-    $cantidadUsuario = $conexion->query("select * from usuarios where nombre_usuario='$nombreUsuario'");
+    $cantidadUsuario = $conexion->query("select * from usuarios where nombre_usuario='$nombreUsuario' and estado = 't'");
     $resultadoUsuario = pg_num_rows($cantidadUsuario);
     if($resultadoUsuario >= 1){
        $mensaje = "El nombre de usuario ya fue registrado. Por favor cambie de nombre";
@@ -21,7 +21,7 @@ require_once '../model/data/Connection.php';
             $mensajeContraseña = "Las contraseñas no coinciden";
             echo "<script>alert('$mensajeContraseña'); window.location='../vista/administradores/crearUsuario.php';</script>";            
         }else{
-            $cantidadCorreo = $conexion->query("select * from usuarios where correo='$correo'");
+            $cantidadCorreo = $conexion->query("select * from usuarios where correo='$correo' and estado = 't'");
             $resultadoCorreo = pg_num_rows($cantidadCorreo);
             if($resultadoCorreo >= 1){
                 $mensajeCorreo = "El correo ya fue registrado. Por favor registrese con otro";

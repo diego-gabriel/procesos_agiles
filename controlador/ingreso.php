@@ -5,8 +5,8 @@ require_once '../model/Usuario.php';
     $contrasena= $_POST['contrasena'];
    
     $datos = Usuario::autenticar($usuario, $contrasena);
-    
-    if($datos != null){
+    $estado = $datos->estado;
+    if($datos != null && $estado == 't'){
         require_once '../model/Profesor.php';
         require_once '../model/Estudiante.php';
         require_once '../model/Administrador.php';

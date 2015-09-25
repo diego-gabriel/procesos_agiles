@@ -24,22 +24,32 @@ if (isset($_SESSION['usuario_id'])){
     	
  
  <title>MENU PROFESOR</title>
- 
+
     <body >
        <?require 'head.php'?>
-        <br><br>
-      <div class="container">
+       
+        <ul style="float:right;" id="mensaje"> <b><? require "../notificaciones/_notificaciones.php" ?></b></ul>
+        <div class="container">
           <br><center> 
   			 <h1 id="titulo"><b>MENU PRINCIPAL PROFESOR</b></h1>
-  			 <p><b>Bienvenido: </b><i><?=$profesor->getNombreUsuario()?></i></p>
-  			</center></br>
+  			 
+  			</center>
+  			
   			</div>
             <style type="text/css">
                 
                  #absoluto {
                 position:absolute;
-                left: 500px;
+                left: 450px;
                 top :210px;
+                }
+                #mensaje{
+                  color: #045FB4;
+text-shadow: 0px 0px 8px #045FB4;
+font-size: 14px;
+font-family: 'Orbitron', sans-serif;
+                    
+                    
                 }
                  #titulo {
               font-weight: bold;
@@ -75,7 +85,7 @@ if (isset($_SESSION['usuario_id'])){
                   
                     <a href="../../index.php"><button class="btn btn-info glyphicon glyphicon-remove"> Cerrar sesion </button></a> 
                    
-                    <? require "../notificaciones/_notificaciones.php" ?>
+                   
                    
                   <div id="absoluto"> <img  class="img-responsive" alt="Imagen responsive" src="../../imagenes/calendario.png" width="500" height="500">  </div>
                    

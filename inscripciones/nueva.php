@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../model/Estudiante.php";
+require_once '../model/Materia.php';
 if (isset($_SESSION['usuario_id'])){
     $estudiante = new Estudiante($_SESSION['usuario_id']);
 } else {
@@ -11,7 +12,6 @@ if (isset($_SESSION['usuario_id'])){
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <body style="background:#F0F8FF">
         <meta charset="UTF-8">
         <title>Inscripcion</title>
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +24,9 @@ if (isset($_SESSION['usuario_id'])){
          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
          <script type="text/javascript" src="/js/reloj.js"></script>
          <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="../css/estilos.css">
     </head>
-    <body>
+    <body style="background:#F0F8FF">
          <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -49,38 +50,33 @@ if (isset($_SESSION['usuario_id'])){
             </div>
         </nav>
         <div class="container">
-            <?php 
-            require_once '../model/Materia.php';
-            require_once '../model/Estudiante.php';
-            $estudiante = new Estudiante($_SESSION['usuario_id']);
-            ?>
-            
-            
-  			 
-            
             <form action = '/inscripciones/crear.php' method = 'POST'>
-               <font face="courier" color="blue">
-                <h1><b>Materias Habilitadas</b></h1>
+                <font face="courier" color="blue">
+                    <h1><b>Materias Habilitadas</b></h1>
                 </font>
-                <table class="table table-striped table-hover table-bordered table-condensed">
-                <tr class="info">
-                    <th>Materias Habilitadas</th>
-                </tr>
                 
-                <?php
-                $materiasHabilitadas = false;
-                foreach($estudiante->materiasHabilitadas() as $materia){
-                    $materiasHabilitadas = true;
-                ?>
-                   	<tr>
-                       	<td> <input type="checkbox" name="materia[]" id = 'materia' value="<?=$materia->getId()?>"> <?=$materia->getNombre()?></td>
-                   	</tr>
-                <?php
-                } 
-            	?>
-            	 </table>
-            	 
-            	 
+                <div class="form-group ">
+            	    <div class="input-group col-xs-12 col-sm-6">
+            	        <span class="input-group-addon">Seleccione la materia:</span>
+            	        <select class="selectpicker form-control" data-live-search="true" name="materia" id="materia">
+            	        	<?php
+            	        	    $materiasHabilitadas = false;
+            	        		foreach($estudiante->materiasHabilitadas() as $materia){
+            	        		    $materiasHabilitadas = true;
+                   			?>
+            	        	<option value="<?=$materia->getId()?>"><?=$materia->getNombre()?></option>
+            	        	<?php
+            	        		}
+            	        	?>
+            	        </select>
+            	    </div>
+            	</div>
+            	<div class="form-group ">
+            		<div class="input-group col-xs-12 col-sm-6">
+            			<span class="input-group-addon">Codigo de la Materia:</span>
+    					<input required type="text" class="form-control" name="codigoMateria" id="codigoMateria" placeholder="Escriba el codigo de la materia">
+                    </div>
+            	</div>
             	<?php
             	    if (!$materiasHabilitadas){
             	?>

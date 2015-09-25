@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
     
             $(".verificarProfesor").on("click", function(e) {
 
-                return confirm('El profesor tiene estudiantes inscritos. Esta seguro que quiere eliminalo?');
+                return confirm('Esta seguro que quiere eliminar al profesor?');
 
             });
 });

@@ -14,7 +14,7 @@ class Profesor extends Usuario{
 	public static function all(){
 		$connection = Connection::getInstance();
 		$result 	= $connection->query("SELECT id FROM usuarios 
-										  WHERE tipo_usuario = ".Usuario::PROFESOR);
+										  WHERE estado = 't' and tipo_usuario = ".Usuario::PROFESOR);
 		$res 		= array();
 		while (($id = pg_fetch_array($result)[0]) != null){
 			$res[] = new Profesor($id);

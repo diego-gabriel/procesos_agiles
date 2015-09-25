@@ -10,28 +10,42 @@ if (isset($_SESSION['usuario_id'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+ <style type="text/css">
+             #mensaje{
+                  color: #045FB4;
+                  text-shadow: 0px 0px 8px #045FB4;
+                  font-size: 14px;
+                  font-family: 'Orbitron', sans-serif;
+                    
+                    
+                }
+                
+ </style>
+
       <link rel="stylesheet" href="../../css/bootstrap.css">
          <link rel="stylesheet" href="../../css/datepicker.css">
     <?require 'head.php'?>
+      <ul style="float:right;" id="mensaje"> <b><? require "../vista/notificaciones/_notificaciones.php" ?></b></ul>
        <div class="container" style="text-align:center;">
         	
-        	<br>
             <font FACE="courier"  color="blue">
-  			 <h1><b>MENU PRINCIPAL</b></h1>
-  			 <p><b>Bienvenido: </b><i><?=$estudiante->getNombreUsuario()?></i></p>
+  			 <h1 id=""><b>MENU PRINCIPAL</b></h1>
+  			 
 			</font>
             </br>
             <a href="/inscripciones/nueva.php"><button class="btn btn-primary glyphicon glyphicon-check">    Inscribirse      </button></a>
             <a href="tareas.php"><button class="btn btn-primary glyphicon glyphicon-file ">     Ver Tareas      </button></a>
             <a href="../../index.php"><button class="btn btn-primary glyphicon glyphicon-remove-circle"> Cerrar sesion </button></a>
         	<br><br><br>
-        	   
-            <? require "../vista/notificaciones/_notificaciones.php" ?>
-
-        	<img  src="../../imagenes/agiles.jpg" alt="portadaInicio" class="img-thumbnail" width="700" height="700">
-        </div>
-    </body>
-</html>
+        	 <center>  
+           
+            <div id = 'calendario'></div>
+            </center>
+            <script type="text/javascript" src="/js/calendario.js"></script>
+            <?php require "_cargarTareas.php"; ?>
+        </div>            
+    </body>            
+</html>          
 
 
 

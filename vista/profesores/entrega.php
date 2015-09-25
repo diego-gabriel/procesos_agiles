@@ -14,14 +14,16 @@
 	$_SESSION['ultimo_sitio'] = $_SERVER['REQUEST_URI'];
 ?>
 <?require 'head.php'?>
+		 <link rel="stylesheet" href="../../css/bootstrap.css">
+         <link rel="stylesheet" href="../../css/datepicker.css">
 <br><br><br>
 <div class="container">
 <table class="table table-striped table-hover table-bordered table-condensed">
 	<tr class="info"> 
-		<th><h2><b>Entrega de la tarea:</b> <?=$tarea->getNombre()?></h2></th>
+		<th><font color="blue"><h2><b>Entrega de la tarea:</b></font> <?=$tarea->getNombre()?></h2></th>
 	</tr>
 		<td><h4><b>Estudiante : </b> <?=$estudiante->nombreCompleto()?></h4>
-		<h4><b>Detalles de la tarea : </b> <? require "_tarea.php" ?></h4>
+		<font color="blue"><h4><b> DETALLES DE LA TAREA  </b></font><br><br> <? require "_tarea.php" ?></h4>
 
 <a target='_blank' href="<?=$entrega->getArchivo()?>">Descargar tarea entregada</a></td>
 

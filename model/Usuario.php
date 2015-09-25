@@ -11,6 +11,9 @@ abstract class Usuario extends ObjetoPersistente{
 	const PROFESOR	 	= 2;
 	const ADMINISTRADOR = 3;
 	
+	const HABILITADO 	 = "Habilitado";
+	const NO_HABILITADO  = "No Habilitado";
+	
 	protected $nombre_usuario;
 	protected $contrasena;
 	protected $nombre;
@@ -18,6 +21,7 @@ abstract class Usuario extends ObjetoPersistente{
 	protected $telefono;
 	protected $correo;
 	protected $tipo_usuario;
+	protected $estado;
 	
 	function __construct($tipo, $id = -1){
 		$this->tipo_usuario = $tipo;
@@ -26,7 +30,7 @@ abstract class Usuario extends ObjetoPersistente{
 	
 	public static function autenticar($usuario, $contrasena){
 		$conexion 	= Connection::getInstance();
-		$resultado 	= $conexion->query("SELECT id, tipo_usuario FROM usuarios 
+		$resultado 	= $conexion->query("SELECT id, tipo_usuario, estado FROM usuarios 
 										WHERE nombre_usuario = '$usuario' 
 										AND contrasena = '$contrasena'");
 		$array = null;
@@ -84,6 +88,19 @@ abstract class Usuario extends ObjetoPersistente{
 	public function setCorreo($correo){
 		$this->correo = $correo;
 	}
+	public function getEstado(){
+		$resultado = Usuario::HABILITADO;
+ 		if($this->estado=="f"){
+ 			$resultado = Usuario::NO_HABILITADO;
+ 		}
+ 		return $resultado;
+	}
+	public function setEstado($estado){
+		if ($estado == Usuario::HABILITADO)
+ 			$this->estado = "t";
+ 		if ($estado == Tarea::NO_HABILITADO)
+ 			$this->estado = "f";
+	}
 	
 	
 	protected function initialize_from($aRow){
@@ -94,7 +111,7 @@ abstract class Usuario extends ObjetoPersistente{
 		$this->telefono 	  = $aRow['telefono'];
 		$this->correo 		  = $aRow['correo'];
 		$this->tipo_usuario   = $aRow['tipo_usuario'];
-		
+		$this->estado         = $aRow['estado'];
 	}
 	
 	//devuelve el nombre completo del usuario

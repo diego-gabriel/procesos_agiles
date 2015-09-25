@@ -126,6 +126,10 @@ class Tarea extends ObjetoPersistente{
  		return $resultado;
  	}
  	
+ 	public function generarEnlace(){
+ 		return "/estudiantes/tarea.php?id=".$this->getId();
+ 	}
+ 	
  	public function getTable(){
  		return "tareas";
  	}

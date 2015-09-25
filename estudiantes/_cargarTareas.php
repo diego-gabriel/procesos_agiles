@@ -15,7 +15,7 @@ $(document).ready(function(){
 		}
 	?>
 	
-	addEnlace($('#calendario'), {
+/*	addEnlace($('#calendario'), {
 		fecha: "20-8",
 		link: 'www.google.com',
 		titulo: 'Enlace a tarea pendiente',
@@ -35,5 +35,5 @@ $(document).ready(function(){
 	});
 	
 });
-
+*/
 </script>

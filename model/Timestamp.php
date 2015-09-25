@@ -12,7 +12,7 @@ class Timestamp{
     
     public static function ahora(){
         date_default_timezone_set('America/La_Paz');
-        return new Timestamp(date('Y-m-d H:i:s+00', time()));
+        return new Timestamp(date('Y-m-d H:i:s-04', time()));
     }
     
     function __construct($date, $time = NULL, $zone = "-04"){

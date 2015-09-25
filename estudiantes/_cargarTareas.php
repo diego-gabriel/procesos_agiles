@@ -33,7 +33,7 @@ $(document).ready(function(){
 		titulo: 'Enlace a tarea atrasada',
 		newClass: 'Atrasada'
 	});
-	
+*/	
 });
-*/
+
 </script>

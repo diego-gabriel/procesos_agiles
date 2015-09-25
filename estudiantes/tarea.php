@@ -47,7 +47,9 @@
 	    <link rel="stylesheet" href="/css/datepicker.css">
 	    
 		<br><br>
-		<?php
+		<br>
+		<div class="container">
+			<?php
 			if (isset($entrega)){
 		?>
 			<div id = "notificacion entrega">
@@ -57,8 +59,7 @@
 			</div>
 		<?php
 			}
-		?><br><br><br>
-		<div class="container">
+		?>
 	<table class="table table-striped table-bordered table-condensed ">
 			<tr class="info">
 				

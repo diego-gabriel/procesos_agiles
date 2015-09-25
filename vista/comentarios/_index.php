@@ -1,4 +1,6 @@
-<?php
+
+<div class="container">
+	<?php
 	$comentarios = $entrega->comentarios();
 	if (count($comentarios) == 0){
 ?>
@@ -6,7 +8,6 @@
 <?php
 	} else {
 ?>
-<div class="container">
 <table class="table table-striped table-bordered table-condensed table table-hover">
 		<tr class="info">
 			<th>

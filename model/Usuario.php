@@ -98,7 +98,7 @@ abstract class Usuario extends ObjetoPersistente{
 	public function setEstado($estado){
 		if ($estado == Usuario::HABILITADO)
  			$this->estado = "t";
- 		if ($estado == Tarea::NO_HABILITADO)
+ 		if ($estado == Usuario::NO_HABILITADO)
  			$this->estado = "f";
 	}
 	

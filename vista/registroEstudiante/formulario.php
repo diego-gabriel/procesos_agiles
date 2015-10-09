@@ -48,7 +48,7 @@
                                 <div class ="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon" style="width: 170px"> Nombre de Usuario:</span>
-                                        <input required type="text" style="width: 370px" class="form-control" name="nombreUsuario" id="nombreUsuario" pattern="^[a-zA-Z]{3}[a-zA-z0-9_\\_\ü]{0,9}$" placeholder="Escriba un nombre de usuario" title="Minimo 3 caracteres y Maximo 12. Los primeros tres caracteres tienen que ser letras.">
+                                        <input required type="text" style="width: 370px" class="form-control" name="nombreUsuario" id="nombreUsuario" pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3}[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9_\\_\ü]{0,9}$" placeholder="Escriba un nombre de usuario" title="Minimo 3 caracteres y Maximo 12. Los primeros tres caracteres tienen que ser letras.">
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                 <div class ="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon" style="width: 170px">Nombre:</span>
-                                        <input required type="text" style="width: 370px" class="form-control" name="nombre" id="nombre" placeholder="Escriba su nombre" pattern="[A-Z]{1}[a-záéíóú]{2,20}$" title="El nombre debe empezar con mayuscula.">
+                                        <input required type="text" style="width: 370px" class="form-control" name="nombre" id="nombre" placeholder="Escriba su nombre" pattern="[A-Z]{1}[a-zñáéíóú]{2,20}$" title="El nombre debe empezar con mayuscula.">
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                 <div class ="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon" style="width: 170px">Apellido:</span>
-                                        <input required type="text" style="width: 370px" class="form-control" name="apellido" id="apeliido" placeholder="Escriba su apellido" pattern="[A-Z]{1}[a-záéíóú]{2,20}\s?([A-Z]{1}[a-záéíóú]{2,20})?" title="El apellido debe empezar con mayuscula.">
+                                        <input required type="text" style="width: 370px" class="form-control" name="apellido" id="apeliido" placeholder="Escriba su apellido" pattern="[A-Z]{1}[a-zñáéíóú]{2,20}\s?([A-Z]{1}[a-záéíóú]{2,20})?" title="El apellido debe empezar con mayuscula.">
                                     </div>
                                 </div>
                             </div>

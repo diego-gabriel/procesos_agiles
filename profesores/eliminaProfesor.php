@@ -5,11 +5,6 @@
 	
 	$profesor = new Profesor($_GET['id']);
 	
-	foreach($profesor->mostrarMaterias() as $materia){
-		$materia->setProfesor(0);
-		$materia->guardar();
-	}
-	
 	$profesor->setEstado(Usuario::NO_HABILITADO);
 	$profesor->guardar();
 	

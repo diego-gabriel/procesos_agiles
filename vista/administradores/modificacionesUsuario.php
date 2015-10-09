@@ -80,8 +80,6 @@
 				
 		</div>
 		
-	
-		<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../../dist/bootstrap-clockpicker.min.js"></script>
 		<script type="text/javascript" src="../../assets/js/highlight.min.js"></script>
 	

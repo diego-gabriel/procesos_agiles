@@ -43,21 +43,20 @@
             	</div>
             	
             	<div class="form-group ">
-            	    <div class="input-group col-xs-12 col-sm-6">
-            	        <span class="input-group-addon">Profesor:</span>
-            	        <?php
-            	        	require_once '../../model/Profesor.php';
-                    	?>
-            	        <select class="selectpicker form-control" data-live-search="true" name="profesor" id="profesor">
-            	        	<?php
-            	        		foreach(Profesor::all() as $profesor){
-                   			?>
-            	        	<option value="<?=$profesor->getId()?>" <?=($materia->getProfesor()->nombreCompleto() == $profesor->nombreCompleto() ? "selected" : '')?>><?=$profesor->getNombre()." ".$profesor->getApellido()?></option>
-            	        	<?php
-            	        		}
-            	        	?>
-            	        </select>
-            	    </div>
+            		<div class="input-group  col-xs-12 col-sm-6">
+            		    
+            			<span class="input-group-addon">Area:</span>
+            		    <select class="selectpicker form-control" name="area_id" id = 'area' required>
+                            <option value = ""> --- Seleccione un &aacute;rea ---</option>
+                        	<?php
+                        	    require_once '../../model/Area.php';
+                        	    foreach(Area::all() as $area){
+                        	        require '../areas/_opcion.php';
+                        	    }
+                        	?>
+                    	</select>
+                    	
+                    </div>
             	</div>
             	
             	<div class="form-group ">
@@ -70,8 +69,6 @@
 				
 		</div>
 		
-	
-		<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../../dist/bootstrap-clockpicker.min.js"></script>
 		<script type="text/javascript" src="../../assets/js/highlight.min.js"></script>
 	

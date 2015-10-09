@@ -19,12 +19,13 @@ class Notificacion extends ObjetoPersistente{
 		$this->visible = 't';
 	}
 	
-	public static function desactivarTodas($url){
+	public static function desactivarTodas($url, $usuario_id){
 		$conexion 	= Connection::getInstance();
 		$conexion->query("UPDATE notificaciones 
 						  SET visible = 'f'  
 						  WHERE 
-						  enlace = '$url'");
+						  enlace = '$url' and 
+						  usuario_id = $usuario_id");
 	}
 	
 	protected function initialize_from($aRow){

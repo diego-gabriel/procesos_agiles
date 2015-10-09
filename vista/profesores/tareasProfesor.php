@@ -29,6 +29,7 @@
                 <th>Fecha de Inicio</th>
                 <th>Fecha de Entrega</th>
                 <th>Materia</th>
+                <th>Grupo</th>
                 <th>Descripcion</th>
                 <th>Estado</th>
                 <th>Acciones</th>

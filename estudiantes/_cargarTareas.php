@@ -3,15 +3,18 @@ $(document).ready(function(){
 	
 	<?php
 		foreach ($estudiante->tareasDelMes() as $tarea){
+			
+			if ($tarea->getEstado() == Tarea::VISIBLE){
 	?>
-			addEnlace($("#calendario"), {
-				fecha: "<?=$tarea->getFechaEntrega()->getDia() . "-" . ($tarea->getFechaEntrega()->getMes()-1)?>",
-				link: "<?=$tarea->generarEnlace()?>",
-				titulo: "<?=$tarea->getNombre()?>",
-				newClass: "<?=$estudiante->estadoDe($tarea)?>"
-			});
+				addEnlace($("#calendario"), {
+					fecha: "<?=$tarea->getFechaEntrega()->getDia() . "-" . ($tarea->getFechaEntrega()->getMes()-1)?>",
+					link: "<?=$tarea->generarEnlace()?>",
+					titulo: "<?=$tarea->getNombre()?>",
+					newClass: "<?=$estudiante->estadoDe($tarea)?>"
+				});
 		
 	<?php
+			}
 		}
 	?>
 	

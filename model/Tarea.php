@@ -13,7 +13,7 @@ class Tarea extends ObjetoPersistente{
 	private $nombre;
 	private $descripcion;
 	private $materia_id;
-	private $profesor_id;
+	private $grupo_id;
 	private $estado;
 	
 	const PENDIENTE  = "Pendiente";
@@ -32,7 +32,7 @@ class Tarea extends ObjetoPersistente{
 		$this->nombre 	    	= $aRow['nombre'];
 		$this->descripcion		= $aRow['descripcion'];
 		$this->materia_id	 	= $aRow['materia_id'];
-		$this->profesor_id      = $aRow['profesor_id'];
+		$this->grupo_id         = $aRow['grupo_id'];
 		$this->estado           = $aRow['estado'];
 	}
 	
@@ -68,8 +68,8 @@ class Tarea extends ObjetoPersistente{
 	public function setMateria($materia_id){
 		$this->materia_id = $materia_id;
 	}
-	public function setProfesor($profesor_id){
-		$this->profesor_id = $profesor_id;
+	public function setGrupo($grupo_id){
+		$this->grupo_id = $grupo_id;
 	}
 	
 	public function setNombre($nombre){
@@ -98,8 +98,8 @@ class Tarea extends ObjetoPersistente{
  		return new Materia($this->materia_id);
  	}
  	
- 	public function getProfesor(){
- 		return $this->profesor_id;
+ 	public function getGrupo(){
+ 		return $this->grupo_id;
  	}
  	
  	public function getNombre(){

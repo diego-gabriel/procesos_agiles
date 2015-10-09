@@ -44,6 +44,18 @@ abstract class Usuario extends ObjetoPersistente{
 		return $array;
 	}
 	
+	public function validarUsuario(){
+		$res = true;
+		$conexion = Connection::getInstance();
+		$consulta = "SELECT * FROM usuarios where nombre_usuario = '$this->nombre_usuario'";
+		$resultado = $conexion->query($consulta);
+		$registro = pg_num_rows($resultado);
+		if($registro > 0)
+			$res = false;
+			
+		return $res;
+	}
+	
 	public function getNombreUsuario(){
 		return $this->nombre_usuario;
 	}

@@ -4,6 +4,8 @@ require_once 'data/Connection.php';
 require_once 'ObjetoPersistente.php';
 require_once 'Estudiante.php';
 require_once 'Profesor.php';
+require_once 'Grupo.php';
+require_once 'Area.php';
 
 class Materia extends ObjetoPersistente{
 	
@@ -12,8 +14,8 @@ class Materia extends ObjetoPersistente{
 	private $nombre;
 	private $codigo;
 	private $descripcion;
-	private $profesor_id;
-
+	private $area_id;
+	
 	function __construct($id = -1){
 		parent::__construct($id);
 	}
@@ -22,7 +24,7 @@ class Materia extends ObjetoPersistente{
 		$this->nombre      = $aRow['nombre'];
 		$this->codigo      = $aRow['codigo'];
 		$this->descripcion = $aRow['descripcion'];
-		$this->profesor_id = $aRow['profesor_id'];
+		$this->area_id     = $aRow['area_id'];
 	}
 	
 	public static function all(){
@@ -41,15 +43,29 @@ class Materia extends ObjetoPersistente{
 	public function estudiantes(){
 		$connection = Connection::getInstance();
 		$result 	= $connection->query("SELECT usuarios.id 
-										  FROM usuarios, inscripciones, materias  
+										  FROM usuarios, inscripciones, grupos  
 										  WHERE tipo_usuario = ".Usuario::ESTUDIANTE." AND  
-										  materias.id = $this->id AND 
+										  grupos.materia_id = $this->id AND 
 										  usuarios.id = inscripciones.usuario_id AND 
-										  materias.id = inscripciones.materia_id");
+										  grupos.id = inscripciones.grupo_id");
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){
 			$res[] = new Estudiante($id);
+		}
+		
+		return $res;
+	}
+	
+	public function mostrarGrupos(){
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT id 
+										  FROM grupos  
+										  WHERE materia_id = $this->id");
+		$res 		= array();
+		
+		while ($id = pg_fetch_array($result)[0]){
+			$res[] = new Grupo($id);
 		}
 		
 		return $res;
@@ -82,8 +98,15 @@ class Materia extends ObjetoPersistente{
 		$this->descripcion = $descripcion;
 	}
 	
-	public function setProfesor($profesor_id){
-		$this->profesor_id = $profesor_id;
+	public function setArea($area){
+		if ($area instanceof Area){
+			$this->area_id = $area->getId();
+		} else {
+			$this->area_id = $area;
+		}
+	}
+	public function getArea(){
+		return new Area($this->area_id);
 	}
 	
 	public function getNombre(){
@@ -96,10 +119,6 @@ class Materia extends ObjetoPersistente{
 	
 	public function getDescripcion(){
 		return $this->descripcion;
-	}
-	
-	public function getProfesor(){
-		return new Profesor($this->profesor_id);
 	}
 	
 	public function getTable(){

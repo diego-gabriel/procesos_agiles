@@ -7,7 +7,7 @@
     $contraseña       = $_POST['contraseña'];
 	$contraseña1      = $_POST['contraseña1'];
 	if($contraseña === $contraseña1){
-        require "_guardarDesdePost.php";
+        require "_modificarDesdePost.php";
         
         if ($profesor->guardar()){
             $mensaje = "El profesor fue actualizado";

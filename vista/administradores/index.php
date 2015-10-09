@@ -50,10 +50,7 @@
             </style>
             
             <div class="content" align="left" style="padding: 50px 100px">
-                  <a href="registroMateria.php"><button class="btn btn-info glyphicon glyphicon-open"> Registrar Materia</button></a> <br><br><br><br>
-                  <a href="listaMaterias.php"><button class="btn btn-info glyphicon glyphicon-user"> Lista de Materias</button></a> <br><br><br><br>
-                  <a href="crearUsuario.php"><button class="btn btn-info glyphicon glyphicon-plus"> Registrar a un Profesor </button></a><br><br><br><br>
-                  <a href="verUsuarios.php"><button class="btn btn-info glyphicon glyphicon-user"> Lista de Profesores</button></a><br><br><br><br>
+                  
                   <div id="absoluto"> <img  class="img-responsive" alt="Imagen responsive" src="../../imagenes/calendario.png" width="500" height="500">  </div>
             </div>
            

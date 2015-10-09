@@ -45,7 +45,7 @@
 	</tr>
 	
 	<?php
-		foreach($profesor->estudiantes($materia) as $estudiante){
+		foreach($profesor->estudiantes(new Grupo($tarea->getGrupo())) as $estudiante){
 			require "_entregasTarea.php";
 		}
 	?>

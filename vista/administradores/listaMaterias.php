@@ -10,28 +10,35 @@
 <!DOCTYPE html>
 <html lang="en">
    <?require'head.php'?>
+       <script type="text/javascript" src="/js/tablesorter.js"></script>
         <title>Lista de Materias</title>
         
         <div class="container">
             <font face="courier" color="blue">
     			<center><h1><b> Materia Registradas</b></h1></center>
             </font>
+            
             <br>
             <div class="table-responsive">
-	            <table class="table table-striped table-hover table-bordered table-condensed">
-		            <tr class="info">
-		                <th>Nombre</th>
-		                <th>Codigo</th>
-		                <th>Descripcion</th>
-		                <th>Profesor</th>
-		                <th>Acciones</th>
-		            </tr>
+	            <table id="materias" class="sortable table table-striped table-hover table-bordered table-condensed">
+		            <thead>
+    		            <tr class="info">
+    		                <th>Nombre</th>
+    		                <th>Codigo</th>
+    		                <th>Descripcion</th>
+    		                <th>Area</th>
+    		                <th>Acciones</th>
+    		            </tr>
+		            </thead>
+		            <tbody>
 		            <?php
 		            	require_once '../../model/Materia.php';
 		                foreach(Materia::all() as $materia){
 		               	    require "_lineaMateria.php";
 		                }
 		            ?> 
+		            </tbody>
+		            
 	            </table>
             </div>
             <a href="registroMateria.php"><button class="btn btn-primary glyphicon glyphicon-plus"> Registrar Nueva Materia</button></a>

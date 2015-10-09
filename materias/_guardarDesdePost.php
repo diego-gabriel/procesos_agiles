@@ -3,11 +3,10 @@
 	$nombreMateria    = $_POST['nombreMateria'];
 	$codigoMateria    = $_POST['codigoMateria'];
 	$descripcion      = $_POST['descripcion'];
-	$idProfesor       = $_POST['profesor'];
+	$area_id		  = $_POST['area_id'];
 	
 	$nuevaMateria->setNombre($nombreMateria);
 	$nuevaMateria->setCodigo($codigoMateria);
 	$nuevaMateria->setDescripcion($descripcion);
-	$nuevaMateria->setProfesor($idProfesor);
-
+	$nuevaMateria->setArea($area_id);
 ?>

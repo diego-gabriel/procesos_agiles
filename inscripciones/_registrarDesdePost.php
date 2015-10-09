@@ -1,12 +1,12 @@
 <?php
 	require_once "../model/Materia.php";
 	$estudiante_id  = $_SESSION['usuario_id'];
-	$idMateria      = $_POST['materia'];
+	$idGrupo      = $_POST['grupo'];
 	$codigoMateria  = $_POST['codigoMateria'];
-	$materia        = new Materia($idMateria);
+	$grupo        = new Grupo($idGrupo);
 	
-	if($codigoMateria == $materia->getCodigo()){
-		$inscripcion->setMateria($idMateria);
+	if($codigoMateria == $grupo->getMateria()->getCodigo()){
+		$inscripcion->setGrupo($idGrupo);
 		$inscripcion->setUsuario($estudiante_id);
 	}else{
 		$mensaje = "El codigo de la materia es incorrecto.";

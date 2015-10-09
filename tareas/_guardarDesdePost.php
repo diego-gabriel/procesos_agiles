@@ -11,6 +11,7 @@ $descripcion    = $_POST['descripcion'];
 $horaInicio     = $_POST['horaIni'];
 $horaFin        = $_POST['horaFin'];
 $estado         = $_POST['estado'];
+$grupo          = $_POST['grupo'];
 
 
 $nuevaTarea->setNombre($nombreTarea);
@@ -19,7 +20,7 @@ $nuevaTarea->setMateria($nombreMateria);
 $nuevaTarea->setFechaInicio($fechaInicio, $horaInicio);
 $nuevaTarea->setFechaEntrega($fechaEntrega, $horaFin);
 $nuevaTarea->setEstado($estado);
-$nuevaTarea->setProfesor($_SESSION['usuario_id']);
+$nuevaTarea->setgrupo($grupo);
 
 
 ?>

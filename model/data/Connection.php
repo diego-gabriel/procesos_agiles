@@ -18,6 +18,7 @@ class Connection {
   {
     $cadena = "host='localhost' port='5432' dbname='calendario_tareas' user = 'postgres' password = 'cronos'";
     $this->connection = pg_connect ($cadena) or die ('Error de conexión. Póngase en contacto con el administrador');
+    $this->query("SET TIME ZONE -4");
   }
   
   

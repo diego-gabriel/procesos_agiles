@@ -26,6 +26,7 @@
                         <th> <center>Fecha de Inicio</center></th>
                         <th> <center>Fecha de Entrega </center></th>
                         <th> <center>Materia</center></th>
+                        <th> <center>Profesor</center></th>
                         <th> <center>Descripcion</center></th>
                         <th> <center>Estado</center></th>
                     </tr>
@@ -34,6 +35,7 @@
                         require_once '../model/Inscripcion.php';
                         
                         $ver_entrega = true;
+                        $ver_profesor = true;
                         foreach($estudiante->tareas() as $tarea){
                             if ($tarea->getEstado() == Tarea::VISIBLE)
                                 require "../vista/tareas/_lineaTarea.php";

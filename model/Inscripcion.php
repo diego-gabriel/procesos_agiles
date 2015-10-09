@@ -8,7 +8,7 @@ class Inscripcion extends ObjetoPersistente{
 	use accesoAPropiedades;
 	
 	private $usuario_id;
-	private $materia_id;
+	private $grupo_id;
 	
 	//construye una inscripcion de manera normal
 	function __construct($id = -1){
@@ -62,21 +62,20 @@ class Inscripcion extends ObjetoPersistente{
 		return $this->usuario_id;
 	}
 	
-	//recibe una materia o materia_id.
-	public function setMateria($materia){
-		if ($usuario instanceof Estudiante){
-			$this->materia_id = $materia->getId();
+	public function setGrupo($grupo){
+		if ($grupo instanceof Grupo){
+			$this->grupo_id = $grupo->getId();
 		} else {
-			$this->materia_id = $materia;
+			$this->grupo_id = $grupo;
 		}
 	}
 	//retorna la materia (Materia)
 	public function getMateria(){
-		return new Materia($this->materia_id);
+		return new Grupo($this->grupo_id);
 	}
 	//retorna el id de la materia
-	public function getMateriaId(){
-		return $this->materia_id;
+	public function getGrupoId(){
+		return $this->grupo_id;
 	}
 	
 	protected function validar(){
@@ -85,7 +84,7 @@ class Inscripcion extends ObjetoPersistente{
 	}
 	protected function initialize_from($aRow){
 		$this->usuario_id = $aRow['usuario_id'];
-		$this->materia_id = $aRow['materia_id'];
+		$this->grupo_id = $aRow['grupo_id'];
 	}
 	public function getTable(){
 		return "inscripciones";

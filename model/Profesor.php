@@ -25,9 +25,10 @@ class Profesor extends Usuario{
 	
 	public function mostrarTareas(){
 		$connection = Connection::getInstance();
-		$result 	= $connection->query("SELECT id 
-										  FROM   tareas  
-										  WHERE  profesor_id = $this->id");
+		$result 	= $connection->query("SELECT tareas.id 
+										  FROM   tareas, grupos  
+										  WHERE  grupos.usuario_id = $this->id AND 
+										  		 tareas.grupo_id = grupos.id");
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){
@@ -39,9 +40,9 @@ class Profesor extends Usuario{
 	
 	public function mostrarMaterias(){
 		$connection = Connection::getInstance();
-		$result 	= $connection->query("SELECT id 
-										  FROM   materias  
-										  WHERE  profesor_id = $this->id");
+		$result 	= $connection->query("SELECT distinct materia_id
+										  FROM   grupos  
+										  WHERE  usuario_id = $this->id");
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){
@@ -50,21 +51,34 @@ class Profesor extends Usuario{
 		
 		return $res;
 	}
-	public function numeroEstudiantes(){
+	
+	public function mostrarGrupos($materia){
 		$connection = Connection::getInstance();
-		$result 	= $connection->query("SELECT inscripciones.usuario_id 
-										  FROM   inscripciones, materias
-										  WHERE  materias.profesor_id = $this->id AND
-										  inscripciones.materia_id = materias.id");
+		$result 	= $connection->query("SELECT id
+										  FROM   grupos  
+										  WHERE  materia_id = $materia AND usuario_id = $this->id");
+		$res 		= array();
+		
+		while ($id = pg_fetch_array($result)[0]){
+			$res[] = new Grupo($id);
+		}
+		
+		return $res;
+	}
+	
+	public function numeroGrupos(){
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT usuario_id 
+										  FROM   grupos
+										  WHERE  usuario_id = $this->id");
 		$res 		= pg_num_rows($result);
 		
 		return $res;
 	}
 	//Devuelve una lista de todos los estudiantes inscritos a $materia
-	public function estudiantes($materia){
-		//echo 'implementar metodo Profesor->estudiantes($materia)<br>';
-		
-		return $materia->estudiantes();
+	public function estudiantes($grupo){
+		var_dump($grupo);
+		return $grupo->estudiantes();
 	}
 }
 

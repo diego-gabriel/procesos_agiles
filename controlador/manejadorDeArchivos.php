@@ -40,4 +40,9 @@ function recibirArchivo($estudiante, $tarea){
 	return $archivo_subido_exitoso ? extraerRutaServidor($ruta_archivo) : null;
 }
 
+function verificarExtension($archivo){
+	$partes = pathinfo($archivo);
+	return $partes['extension'] == 'pdf'|| $partes['extension'] == 'zip';
+}
+
 ?>

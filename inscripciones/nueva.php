@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once "../model/Estudiante.php";
+require_once "../model/Profesor.php";
 require_once '../model/Materia.php';
+require_once '../model/Grupo.php';
 if (isset($_SESSION['usuario_id'])){
     $estudiante = new Estudiante($_SESSION['usuario_id']);
 } else {
@@ -24,6 +26,8 @@ if (isset($_SESSION['usuario_id'])){
          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
          <script type="text/javascript" src="/js/reloj.js"></script>
          <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+         <script type="text/javascript" src="../js/mostrarGrupos.js"></script>
+         <script type="text/javascript" src="../js/validacionCambioSelect.js"></script>
          <link rel="stylesheet" href="../css/estilos.css">
     </head>
     <body style="background:#F0F8FF">
@@ -58,7 +62,8 @@ if (isset($_SESSION['usuario_id'])){
                 <div class="form-group ">
             	    <div class="input-group col-xs-12 col-sm-6">
             	        <span class="input-group-addon">Seleccione la materia:</span>
-            	        <select class="selectpicker form-control" data-live-search="true" name="materia" id="materia">
+            	        <select class="selectpicker form-control" data-live-search="true" name="materia" id="materia" onChange="valida()">
+            	        	<option selected>Seleccione una opcion</option>
             	        	<?php
             	        	    $materiasHabilitadas = false;
             	        		foreach($estudiante->materiasHabilitadas() as $materia){
@@ -68,6 +73,14 @@ if (isset($_SESSION['usuario_id'])){
             	        	<?php
             	        		}
             	        	?>
+            	        </select>
+            	    </div>
+            	</div>
+            	<div class="form-group ">
+            	    <div class="input-group col-xs-12 col-sm-6">
+            	        <span class="input-group-addon">Seleccione el Grupo:</span>
+            	        <select class="selectpicker form-control" data-live-search="true" name="grupo" id="grupo">
+            	        	
             	        </select>
             	    </div>
             	</div>
@@ -85,7 +98,7 @@ if (isset($_SESSION['usuario_id'])){
             	    }
             	?>
                 
-                <input type="submit" value="Inscribirse" class = "btn btn-info  <?= ($materiasHabilitadas ? '' : 'disabled') ?> "/>
+                <input type="submit" id = "boton" name="boton" value="Inscribirse" disabled class = "btn btn-info<?= ($materiasHabilitadas ? '' : 'disabled') ?> "/>
             </form>
             <font face="courier" color="green">
         	<h1><b>Materias Inscritas</b></h1>
@@ -93,15 +106,21 @@ if (isset($_SESSION['usuario_id'])){
             <table class="table table-striped table-hover table-bordered table-condensed">
             <tr class="info">
                 <th>Materias Inscritas</th>
+                <th>Profesor</th>
+                <th>Grupo</th>
             </tr>
             
             <?php
             $bandera = false;
             foreach($estudiante->materias() as $materia){
                 $bandera = true;
+                $profesorEstudiante = $estudiante->profesor($materia->getId());
+                $grupoEstudiante    = $estudiante->grupo($materia->getId());
            	?>
                	<tr>
                    	<td><?=$materia->getNombre()?></td>
+                   	<td><?=$profesorEstudiante->nombreCompleto()?></td>
+                   	<td><?=$grupoEstudiante->getCodigo()?></td>
                	</tr>
             <?php
             } 
@@ -118,5 +137,7 @@ if (isset($_SESSION['usuario_id'])){
         	
             <a href="/estudiantes/inicio.php"><button class="btn btn-info">volver a inicio</button></a>
         </div>
+        <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="../../assets/js/jquery.js"></script>
     </body>
 </html>

@@ -27,12 +27,12 @@ class Estudiante extends Usuario{
 	public function materias(){
 		
 		$connection = Connection::getInstance();
-		$result 	= $connection->query("SELECT materias.id 
-										  FROM usuarios, inscripciones, materias  
+		$result 	= $connection->query("SELECT grupos.materia_id 
+										  FROM usuarios, inscripciones, grupos  
 										  WHERE tipo_usuario = ".Usuario::ESTUDIANTE." AND  
 										  usuarios.id = $this->id AND 
 										  usuarios.id = inscripciones.usuario_id AND 
-										  materias.id = inscripciones.materia_id");
+										  grupos.id = inscripciones.grupo_id");
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){
@@ -44,15 +44,16 @@ class Estudiante extends Usuario{
 	//devuelve las materias a las que el estudiante puede inscribirse
 	public function materiasHabilitadas(){
 		$connection = Connection::getInstance();
-		$result 	= $connection->query("SELECT materias.id 
-										  FROM materias 
-										  WHERE materias.id NOT IN 
-										  (SELECT materias.id 
-										  FROM usuarios, inscripciones, materias  
+		$result 	= $connection->query("SELECT distinct materias.id 
+										  FROM materias, grupos 
+										  WHERE grupos.materia_id = materias.id AND 
+										  materias.id NOT IN 
+										  (SELECT grupos.materia_id 
+										  FROM usuarios, inscripciones, grupos  
 										  WHERE tipo_usuario = ".Usuario::ESTUDIANTE." AND  
 										  usuarios.id = $this->id AND 
 										  usuarios.id = inscripciones.usuario_id AND 
-										  materias.id = inscripciones.materia_id)");
+										  grupos.id = inscripciones.grupo_id)");
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){
@@ -67,13 +68,10 @@ class Estudiante extends Usuario{
 	public function tareas(){
 		
 		$connection = Connection::getInstance();
-		$result 	= $connection->query("SELECT tareas.id 
-										  FROM usuarios, inscripciones, materias, tareas  
-										  WHERE tipo_usuario = ".Usuario::ESTUDIANTE." AND  
-										  usuarios.id = $this->id AND 
-										  usuarios.id = inscripciones.usuario_id AND 
-										  materias.id = inscripciones.materia_id AND 
-										  tareas.materia_id = materias.id");
+		$result 	= $connection->query("SELECT tareas.id
+										  FROM tareas, inscripciones
+										  WHERE inscripciones.usuario_id = $this->id AND
+										  inscripciones.grupo_id = tareas.grupo_id");
 		$res 		= array();
 		
 		while ($id = pg_fetch_array($result)[0]){
@@ -81,6 +79,34 @@ class Estudiante extends Usuario{
 		}
 		
 		return $res;
+	}
+	
+	public function profesor($materia){
+		
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT grupos.usuario_id
+										  FROM grupos, inscripciones
+										  WHERE inscripciones.usuario_id = $this->id AND
+										  inscripciones.grupo_id = grupos.id AND
+										  grupos.materia_id = $materia");
+		$res 		= array();
+		$id = pg_fetch_array($result)[0];
+		$profesor = new Profesor($id);
+		return $profesor;
+	}
+	
+	public function grupo($materia){
+		
+		$connection = Connection::getInstance();
+		$result 	= $connection->query("SELECT grupos.id
+										  FROM grupos, inscripciones
+										  WHERE inscripciones.usuario_id = $this->id AND
+										  inscripciones.grupo_id = grupos.id AND
+										  grupos.materia_id = $materia");
+		$res 		= array();
+		$id = pg_fetch_array($result)[0];
+		$grupo = new Grupo($id);
+		return $grupo;
 	}
 
 	public function tareasDelMes(){
@@ -106,16 +132,15 @@ class Estudiante extends Usuario{
 			$tarea_id = $tarea;
 		}
 		
-		$entrega = null;
 		$conexion  = Connection::getInstance();
 		$resultado = $conexion->query("SELECT entregas.id 
 									   FROM entregas, usuarios, tareas 
 									   WHERE 
 									   entregas.usuario_id = $this->id AND 
 									   entregas.tarea_id = $tarea_id");
-		while ($id = pg_fetch_array($resultado)[0]){
-			$entrega = new Entrega($id);
-		}							   
+		$id = pg_fetch_array($resultado)[0];
+		$entrega = $id != null ? new Entrega($id) : null;
+							   
 		return $entrega;
 	}
 	

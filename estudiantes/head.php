@@ -15,6 +15,7 @@
     	<script src="jquery.ui.datepicker-es.js"></script>
 	    <script type="text/javascript" src="../../js/validacionFechas.js"></script>
 	    <link rel="stylesheet" href="/css/calendario.css" type="text/css" />
+
          
     </head>
 <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">

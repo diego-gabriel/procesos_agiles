@@ -77,7 +77,6 @@ class Profesor extends Usuario{
 	}
 	//Devuelve una lista de todos los estudiantes inscritos a $materia
 	public function estudiantes($grupo){
-		var_dump($grupo);
 		return $grupo->estudiantes();
 	}
 }
